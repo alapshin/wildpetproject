@@ -1,0 +1,16 @@
+style:
+  UnusedPrivateMember:
+    ignoreAnnotated: [ 'Preview' ]
+  WildcardImport:
+    excludeImports: [ 'java.util.*', 'kotlinx.android.synthetic.*', 'io.ktor.*' ]
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated: [ 'Composable' ]
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][A-Za-z0-9]*'
+
+formatting:
+  # Duplicates style -> WildcardImport
+  NoWildcardImports:
+    active: false

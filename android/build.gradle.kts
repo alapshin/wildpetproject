@@ -42,5 +42,6 @@ android {
 dependencies {
     implementation(projects.shared)
     implementation(libs.bundles.compose)
-    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.decompose.core)
 }

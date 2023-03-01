@@ -1,36 +1,94 @@
 [versions]
-# @keep
-minSdk = "21"
-agp = "7.4.0"
-kotlin = "1.8.0"
-detekt = "1.22.0"
+agp = "7.4.2"
+androidx-lifecycle = "2.5.1"
+kotlin = "1.8.10"
+kotlin-inject = "0.6.1"
+ksp = "1.8.10-1.0.9"
+ktor = "2.2.4"
+ktorfit = "1.0.0-beta18"
 compose = "1.3.3"
-compose-desktop = "1.3.0-rc05"
+compose-desktop = "1.3.1-rc01"
+coroutines = "1.6.4"
+datetime = "0.4.0"
+decompose = "1.0.0"
+essenty = "1.0.0"
+detekt = "1.22.0"
+serialization = "1.5.0-RC"
 
 [libraries]
+androidx-activity-compose = "androidx.activity:activity-compose:1.6.1"
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = "androidx.compose.foundation:foundation:1.3.1"
 compose-material3-android = "androidx.compose.material3:material3:1.0.1"
-compose-material3-desktop = "rg.jetbrains.compose.material3:material3-desktop:1.2.1"
+decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
+essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+kermit = "co.touchlab:kermit:1.2.2"
+kotlin-inject-ksp = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
+kotlin-inject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlin-inject" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
+ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
+ktor-server-content = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version.ref = "ktor" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+logback = "ch.qos.logback:logback-classic:1.4.5"
 
 [bundles]
 compose = [
+    "compose-foundation",
+    "compose-material3-android",
     "compose-ui",
     "compose-ui-preview",
     "compose-ui-tooling",
-    "compose-foundation",
-    "compose-material3-android",
+]
+decompose = [
+    "decompose-core",
+    "decompose-extensions",
+    "essenty-parcelable",
+]
+ktor-client = [
+    "ktor-client-cio",
+    "ktor-client-content",
+    "ktor-client-core",
+    "ktor-client-logging",
+    "ktor-serialization-json",
+]
+ktor-server = [
+    "ktor-serialization-json",
+    "ktor-server-cio",
+    "ktor-server-content",
+    "ktor-server-core",
+    "ktor-server-openapi",
+    "ktor-server-resources",
 ]
 
 [plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-versions-check = "com.github.ben-manes.versions:0.44.0"
+versions-check = "com.github.ben-manes.versions:0.46.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.7.0"
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-jetbrains-compose= { id = "org.jetbrains.compose", version.ref = "compose-desktop" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-desktop" }
