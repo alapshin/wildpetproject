@@ -1,7 +1,7 @@
 package com.alapshin.multiplayground.root.domain
 
-import com.alapshin.multiplayground.list.domain.ListBloc
+import com.alapshin.multiplayground.users.domain.UserListBloc
 
 sealed interface Child {
-    class Main(val bloc: ListBloc): Child
+    class UserList(val bloc: UserListBloc) : Child
 }

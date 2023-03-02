@@ -3,10 +3,9 @@ package com.alapshin.multiplayground.root.view
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.alapshin.multiplayground.list.view.MainContent
 import com.alapshin.multiplayground.root.domain.Child
 import com.alapshin.multiplayground.root.domain.RootBloc
-
+import com.alapshin.multiplayground.users.view.UserListScreen
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
@@ -22,7 +21,7 @@ fun RootContent(bloc: RootBloc, modifier: Modifier) {
             animation = stackAnimation(fade() + scale()),
         ) {
             when (val child = it.instance) {
-                is Child.Main -> MainContent(bloc = child.bloc)
+                is Child.UserList -> UserListScreen(bloc = child.bloc)
             }
         }
     }

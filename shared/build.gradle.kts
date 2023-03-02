@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.ksp)
+    alias(libs.plugins.ktorfit)
+
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
@@ -33,6 +35,7 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
                 implementation(libs.essenty.parcelable)
+                implementation(libs.bundles.mvikotlin)
 
                 implementation(libs.kermit)
                 implementation(libs.kotlin.inject.runtime)
@@ -66,9 +69,11 @@ android {
 }
 
 dependencies {
+    add("kspDesktop", libs.ktorfit.ksp)
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspCommonMainMetadata", libs.ktorfit.ksp)
 
+    add("kspDesktop", libs.kotlin.inject.ksp)
     add("kspAndroid", libs.kotlin.inject.ksp)
     add("kspCommonMainMetadata", libs.kotlin.inject.ksp)
 }

@@ -1,6 +1,6 @@
 package com.alapshin.multiplayground.root.domain
 
-import com.alapshin.multiplayground.list.domain.ListBloc
+import com.alapshin.multiplayground.users.domain.UserListBloc
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
@@ -18,7 +18,7 @@ class RootBlocImpl(
 
     private val _stack = childStack(
         source = navigation,
-        initialConfiguration = Config.Main,
+        initialConfiguration = Config.UserList,
         handleBackButton = true,
         childFactory = ::child
     )
@@ -26,8 +26,8 @@ class RootBlocImpl(
 
     private fun child(config: Config, componentContext: ComponentContext): Child {
         val blocFactory = checkNotNull(blocFactoryMap[config])
-        return when(config) {
-            Config.Main -> Child.Main(blocFactory.invoke(componentContext) as ListBloc)
+        return when (config) {
+            Config.UserList -> Child.UserList(blocFactory.invoke(componentContext) as UserListBloc)
         }
     }
 }

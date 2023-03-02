@@ -19,9 +19,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AppTheme {
-               RootContent(bloc = rootBloc, modifier = Modifier.fillMaxSize())
+                RootContent(bloc = rootBloc, modifier = Modifier.fillMaxSize())
             }
         }
     }
 }
-

@@ -13,6 +13,7 @@ datetime = "0.4.0"
 decompose = "1.0.0"
 essenty = "1.0.0"
 detekt = "1.22.0"
+mvikotlin = "3.1.0"
 serialization = "1.5.0-RC"
 
 [libraries]
@@ -40,13 +41,12 @@ ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
-ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor" }
-ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
-ktor-server-content = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
-ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version.ref = "ktor" }
-ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
-logback = "ch.qos.logback:logback-classic:1.4.5"
+mvikotlin-core = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
+mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
+mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "mvikotlin" }
+mvikotlin-timetravel = { module = "com.arkivanov.mvikotlin:mvikotlin-timetravel", version.ref = "mvikotlin" }
+mvikotlin-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
 
 [bundles]
 compose = [
@@ -70,11 +70,13 @@ ktor-client = [
 ]
 ktor-server = [
     "ktor-serialization-json",
-    "ktor-server-cio",
-    "ktor-server-content",
-    "ktor-server-core",
-    "ktor-server-openapi",
-    "ktor-server-resources",
+]
+mvikotlin = [
+    "mvikotlin-core",
+    "mvikotlin-main",
+    "mvikotlin-logging",
+    "mvikotlin-timetravel",
+    "mvikotlin-coroutines",
 ]
 
 [plugins]
@@ -84,7 +86,6 @@ versions-check = "com.github.ben-manes.versions:0.46.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.7.0"
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
-ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
