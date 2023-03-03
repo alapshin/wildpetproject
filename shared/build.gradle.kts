@@ -13,6 +13,7 @@ kotlin {
     android()
     jvm("desktop")
 
+    @Suppress("UnusedPrivateMember")
     sourceSets {
         all {
             languageSettings.apply {
@@ -23,7 +24,7 @@ kotlin {
                 optIn("androidx.compose.material3.ExperimentalMaterial3Api")
             }
         }
-        
+
         val commonMain by getting {
             dependencies {
                 api(compose.runtime)

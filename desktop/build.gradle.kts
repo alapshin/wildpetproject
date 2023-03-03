@@ -7,6 +7,7 @@ kotlin {
     jvm {
         withJava()
     }
+    @Suppress("UnusedPrivateMember")
     sourceSets {
         val jvmMain by getting {
             dependencies {

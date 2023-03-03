@@ -1,4 +1,5 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     alias(libs.plugins.detekt)
@@ -17,7 +18,13 @@ plugins {
     alias(libs.plugins.jetbrains.compose).apply(false)
 }
 
-subprojects {
+tasks.register("detektAll") {
+    allprojects {
+        this@register.dependsOn(tasks.withType<Detekt>())
+    }
+}
+
+allprojects {
     apply(plugin = rootProject.libs.plugins.detekt.get().pluginId)
 
     detekt {
@@ -28,14 +35,15 @@ subprojects {
     dependencies {
         detektPlugins(rootProject.libs.detekt.formatting)
     }
-}
 
-tasks.register("detektAll") {
-    allprojects {
-        this@register.dependsOn(tasks.withType<io.gitlab.arturbosch.detekt.Detekt>())
+    tasks.withType<Detekt>().configureEach {
+        setSource(files(project.projectDir))
+        exclude("**/build/**")
+        exclude {
+            it.file.relativeTo(projectDir).startsWith(project.buildDir.relativeTo(projectDir))
+        }
     }
 }
-
 
 versionCatalogUpdate {
     sortByKey.set(false)

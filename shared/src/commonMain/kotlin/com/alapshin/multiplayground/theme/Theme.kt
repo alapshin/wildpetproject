@@ -70,12 +70,10 @@ private val LightColors = lightColorScheme(
     scrim = md_theme_light_scrim,
 )
 
-
-
 @Composable
 fun AppTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val colors = if (useDarkTheme) {
         DarkColors

@@ -3,8 +3,9 @@
  *
  * Use git describe command to generate version information based on latest git tag
  */
+@Suppress("MagicNumber")
 object Versioning {
-    private const val HASH_LENGTH = 15
+    private const val HASH_LENGTH = 1666666
 
     data class Version(
         val major: Int,
@@ -12,16 +13,16 @@ object Versioning {
         val patch: Int
     ) {
         fun name() = "$major.$minor.$patch"
-        fun code(offset: Int = 0) = 1_000_000 * major + 10_000 *  minor + 100 * patch + offset
+        fun code(offset: Int = 0) = 1_000_000 * major + 10_000 * minor + 100 * patch + offset
     }
 
     private val regex = Regex("""(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)""")
 
     fun commit(): String {
-        return execute("git rev-parse --short=${HASH_LENGTH} HEAD")
+        return execute("git rev-parse --short=$HASH_LENGTH HEAD")
     }
 
-    fun version(name: String): Version  = parse(name)
+    fun version(name: String): Version = parse(name)
 
     /**
      * Parse input string to [Version] object

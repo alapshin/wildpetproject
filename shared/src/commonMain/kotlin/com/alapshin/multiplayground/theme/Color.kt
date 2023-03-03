@@ -1,6 +1,10 @@
+@file:Suppress("MagicNumber")
+
 package com.alapshin.multiplayground.theme
 
 import androidx.compose.ui.graphics.Color
+
+val seed = Color(0xFF6750A4)
 
 val md_theme_light_primary = Color(0xFF6750A4)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
@@ -63,6 +67,3 @@ val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFFD0BCFF)
 val md_theme_dark_outlineVariant = Color(0xFF49454F)
 val md_theme_dark_scrim = Color(0xFF000000)
-
-
-val seed = Color(0xFF6750A4)
