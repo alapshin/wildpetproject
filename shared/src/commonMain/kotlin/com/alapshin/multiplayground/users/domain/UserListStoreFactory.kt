@@ -1,6 +1,6 @@
 package com.alapshin.multiplayground.users.domain
 
-import com.alapshin.multiplayground.DispatcherProvider
+import com.alapshin.multiplayground.coroutines.DispatcherProvider
 import com.alapshin.multiplayground.users.data.User
 import com.alapshin.multiplayground.users.data.UserRepository
 import com.alapshin.multiplayground.users.domain.UserListMvi.Intent

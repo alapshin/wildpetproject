@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground
+package com.alapshin.multiplayground.coroutines
 
 import me.tatarka.inject.annotations.Inject
 

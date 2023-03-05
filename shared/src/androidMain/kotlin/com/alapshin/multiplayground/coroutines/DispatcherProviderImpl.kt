@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground
+package com.alapshin.multiplayground.coroutines
 
 import kotlinx.coroutines.Dispatchers
 import me.tatarka.inject.annotations.Inject
