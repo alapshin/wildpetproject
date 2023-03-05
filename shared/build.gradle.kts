@@ -33,6 +33,7 @@ kotlin {
                 // Needed only for preview.
                 implementation(compose.preview)
 
+                implementation(libs.kamel)
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
                 implementation(libs.essenty.parcelable)
@@ -49,6 +50,14 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                implementation(libs.decompose.core)
+                implementation(libs.androidx.activity.compose)
+            }
+        }
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(libs.kamel)
             }
         }
     }

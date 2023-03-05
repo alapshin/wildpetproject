@@ -29,6 +29,7 @@ decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 kermit = "co.touchlab:kermit:1.2.2"
 kotlin-inject-ksp = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
 kotlin-inject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlin-inject" }
