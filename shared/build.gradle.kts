@@ -1,6 +1,9 @@
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type
+
 plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktorfit)
+    alias(libs.plugins.buildkonfig)
 
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
@@ -75,6 +78,14 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+buildkonfig {
+    packageName = "com.alapshin.multiplayground"
+    defaultConfigs {
+        buildConfigConstField(Type.STRING, "API_URL", "https://jsonplaceholder.typicode.com/")
+        buildConfigConstField(Type.STRING, "AVATAR_SERVICE_URL", "https://robohash.org/")
     }
 }
 

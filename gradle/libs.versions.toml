@@ -83,6 +83,7 @@ mvikotlin = [
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
 versions-check = "com.github.ben-manes.versions:0.46.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.7.0"
 android-library = { id = "com.android.library", version.ref = "agp" }

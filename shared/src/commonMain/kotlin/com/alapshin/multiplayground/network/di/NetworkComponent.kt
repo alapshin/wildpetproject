@@ -1,5 +1,6 @@
 package com.alapshin.multiplayground.network.di
 
+import com.alapshin.multiplayground.BuildKonfig
 import de.jensklingenberg.ktorfit.Ktorfit
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -31,7 +32,7 @@ interface NetworkComponent {
     @Provides
     fun ktorfit(httpClient: HttpClient): Ktorfit {
         return Ktorfit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .baseUrl(BuildKonfig.API_URL)
             .httpClient(httpClient)
             .build()
     }
