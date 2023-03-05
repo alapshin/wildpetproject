@@ -13,7 +13,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scal
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
 
 @Composable
-fun RootContent(bloc: RootBloc, modifier: Modifier) {
+fun RootScreen(bloc: RootBloc, modifier: Modifier) {
     Scaffold {
         Children(
             stack = bloc.stack,

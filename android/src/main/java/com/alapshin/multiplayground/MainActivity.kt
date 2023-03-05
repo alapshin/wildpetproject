@@ -10,7 +10,7 @@ import com.alapshin.multiplayground.di.PlatformComponent
 import com.alapshin.multiplayground.di.create
 import com.alapshin.multiplayground.root.di.DescomposeComponent
 import com.alapshin.multiplayground.root.di.create
-import com.alapshin.multiplayground.root.view.RootContent
+import com.alapshin.multiplayground.root.view.RootScreen
 import com.alapshin.multiplayground.theme.AppTheme
 import com.arkivanov.decompose.defaultComponentContext
 
@@ -28,8 +28,9 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
+            CompositionLocalProvider
             AppTheme {
-                RootContent(bloc = decomposeComponent.rootBloc, modifier = Modifier.fillMaxSize())
+                RootScreen(bloc = decomposeComponent.rootBloc, modifier = Modifier.fillMaxSize())
             }
         }
     }
