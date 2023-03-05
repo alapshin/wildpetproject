@@ -13,6 +13,8 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(11)
+
     android()
     jvm("desktop")
 
@@ -20,10 +22,9 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
+                progressiveMode = true
                 optIn("kotlin.RequiresOptIn")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-                optIn("kotlinx.coroutines.ExperimentalComposeLibrary")
-                optIn("org.jetbrains.compose.ExperimentalComposeLibrary")
                 optIn("androidx.compose.material3.ExperimentalMaterial3Api")
             }
         }
@@ -59,9 +60,6 @@ kotlin {
         }
 
         val desktopMain by getting {
-            dependencies {
-                implementation(libs.kamel)
-            }
         }
     }
 }
@@ -75,6 +73,7 @@ android {
         targetSdk = Versions.targetSdk
     }
 
+    // This is needed due to https://issuetracker.google.com/issues/260059413
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
