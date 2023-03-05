@@ -1,7 +1,6 @@
 package com.alapshin.multiplayground.root.di
 
-import com.alapshin.multiplayground.di.DispatcherComponent
-import com.alapshin.multiplayground.network.di.NetworkComponent
+import com.alapshin.multiplayground.di.ApplicationComponent
 import com.alapshin.multiplayground.root.domain.RootBloc
 import com.alapshin.multiplayground.root.domain.RootBlocImpl
 import com.alapshin.multiplayground.users.di.UserComponent
@@ -12,9 +11,10 @@ import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides
 
 @Component
-abstract class RootComponent(
+abstract class DescomposeComponent(
     private val componentContext: ComponentContext,
-) : DispatcherComponent, NetworkComponent, UserComponent {
+    @Component val applicationComponent: ApplicationComponent,
+) : UserComponent {
     abstract val rootBloc: RootBloc
 
     @Provides
