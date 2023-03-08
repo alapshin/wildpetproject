@@ -22,3 +22,16 @@ dependencyResolutionManagement {
 }
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+gradle.beforeProject {
+    val localPropertiesFile = rootDir.resolve("local.properties")
+    if (localPropertiesFile.exists()) {
+        val localProperties = java.util.Properties()
+        localProperties.load(localPropertiesFile.inputStream())
+        localProperties.forEach { (k, v) ->
+            if (k is String) {
+                project.extra.set(k, v)
+            }
+        }
+    }
+}
