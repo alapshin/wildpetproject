@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.alapshin.multiplayground.BuildKonfig
 import com.alapshin.multiplayground.users.data.User
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
@@ -16,13 +15,13 @@ import io.kamel.image.lazyPainterResource
 @Composable
 fun UserItemView(user: User) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        val avatarUrl = BuildKonfig.AVATAR_SERVICE_URL + user.id
+        val avatarUrl = user.avatar
         KamelImage(
             resource = lazyPainterResource(data = avatarUrl),
             contentDescription = "",
-            modifier = Modifier.size(40.dp)
+            modifier = Modifier.size(72.dp)
         )
         Spacer(modifier = Modifier.size(4.dp))
-        Text(user.username)
+        Text("${user.firstName} ${user.lastName}")
     }
 }

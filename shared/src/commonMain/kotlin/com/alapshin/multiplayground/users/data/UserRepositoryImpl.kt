@@ -5,6 +5,6 @@ import me.tatarka.inject.annotations.Inject
 @Inject
 class UserRepositoryImpl(private val service: UserService) : UserRepository {
     override suspend fun getUsers(): List<User> {
-        return service.getUsers()
+        return service.getUsers().users
     }
 }

@@ -83,8 +83,7 @@ android {
 buildkonfig {
     packageName = "com.alapshin.multiplayground"
     defaultConfigs {
-        buildConfigConstField(Type.STRING, "API_URL", "https://jsonplaceholder.typicode.com/")
-        buildConfigConstField(Type.STRING, "AVATAR_SERVICE_URL", "https://robohash.org/")
+        buildConfigField(Type.STRING, "API_URL", "https://reqres.in/api/", const = true)
     }
 }
 
