@@ -3,6 +3,7 @@ package com.alapshin.multiplayground.root.view
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.alapshin.multiplayground.login.view.LoginScreen
 import com.alapshin.multiplayground.root.domain.Child
 import com.alapshin.multiplayground.root.domain.RootBloc
 import com.alapshin.multiplayground.users.view.UserListScreen
@@ -21,6 +22,7 @@ fun RootScreen(bloc: RootBloc, modifier: Modifier) {
             animation = stackAnimation(fade() + scale()),
         ) {
             when (val child = it.instance) {
+                is Child.Login -> LoginScreen(bloc = child.bloc)
                 is Child.UserList -> UserListScreen(bloc = child.bloc)
             }
         }

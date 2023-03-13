@@ -1,6 +1,7 @@
 package com.alapshin.multiplayground.root.di
 
 import com.alapshin.multiplayground.di.ApplicationComponent
+import com.alapshin.multiplayground.login.di.LoginComponent
 import com.alapshin.multiplayground.root.domain.RootBloc
 import com.alapshin.multiplayground.root.domain.RootBlocImpl
 import com.alapshin.multiplayground.users.di.UserComponent
@@ -14,7 +15,7 @@ import me.tatarka.inject.annotations.Provides
 abstract class DescomposeComponent(
     private val componentContext: ComponentContext,
     @Component val applicationComponent: ApplicationComponent,
-) : UserComponent {
+) : LoginComponent, UserComponent {
     abstract val rootBloc: RootBloc
 
     @Provides
