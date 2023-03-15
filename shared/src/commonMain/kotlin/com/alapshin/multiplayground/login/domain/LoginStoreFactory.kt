@@ -55,9 +55,7 @@ class LoginStoreFactory(
                 is Intent.Login -> {
                     scope.launch {
                         withContext(dispatcherProvider.io) {
-                            loginManager.login(intent.email, intent.password).also {
-                                dispatch(Message.LoginSuccess)
-                            }
+                            loginManager.login(intent.email, intent.password)
                         }
                     }
                 }
