@@ -20,9 +20,6 @@ interface LoginComponent {
     @Provides
     fun provideLoginService(ktorfit: Ktorfit): LoginService = ktorfit.create<LoginService>()
 
-//    @Provides
-//    fun provideLoginService(service: LoginServiceImpl): LoginService = service
-
     @Provides
     fun provideLoginManager(manager: LoginManagerImpl): LoginManager = manager
 
