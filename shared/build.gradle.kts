@@ -2,7 +2,9 @@ import com.codingfeline.buildkonfig.compiler.FieldSpec.Type
 
 plugins {
     alias(libs.plugins.ksp)
+
     alias(libs.plugins.ktorfit)
+    alias(libs.plugins.molecule)
     alias(libs.plugins.buildkonfig)
 
     alias(libs.plugins.android.library)
@@ -42,6 +44,7 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
                 implementation(libs.essenty.parcelable)
+                implementation(libs.molecule)
                 implementation(libs.bundles.mvikotlin)
 
                 implementation(libs.kermit)

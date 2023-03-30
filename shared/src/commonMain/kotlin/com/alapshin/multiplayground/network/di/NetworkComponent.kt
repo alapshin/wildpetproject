@@ -1,7 +1,6 @@
 package com.alapshin.multiplayground.network.di
 
 import com.alapshin.multiplayground.BuildKonfig
-import com.alapshin.multiplayground.di.scope.ApplicationScope
 import com.alapshin.multiplayground.network.KermitKtorLogger
 import de.jensklingenberg.ktorfit.Ktorfit
 import io.ktor.client.*
@@ -17,12 +16,13 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides
+import me.tatarka.inject.annotations.Scope
 
 @Component
-@ApplicationScope
+@NetworkScope
 interface NetworkComponent {
     @Provides
-    @ApplicationScope
+    @NetworkScope
     fun json(): Json {
         return Json {
             prettyPrint = true
@@ -34,7 +34,7 @@ interface NetworkComponent {
     fun logger(): Logger = KermitKtorLogger
 
     @Provides
-    @ApplicationScope
+    @NetworkScope
     fun httpClient(json: Json, logger: Logger): HttpClient {
         return HttpClient(CIO) {
             developmentMode = true
@@ -53,7 +53,7 @@ interface NetworkComponent {
     }
 
     @Provides
-    @ApplicationScope
+    @NetworkScope
     fun ktorfit(httpClient: HttpClient): Ktorfit {
         return Ktorfit.Builder()
             .httpClient(httpClient)
@@ -61,3 +61,7 @@ interface NetworkComponent {
             .build()
     }
 }
+
+@Scope
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER)
+private annotation class NetworkScope

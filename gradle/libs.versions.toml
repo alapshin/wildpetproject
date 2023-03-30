@@ -1,6 +1,5 @@
 [versions]
 agp = "7.4.2"
-androidx-lifecycle = "2.5.1"
 kotlin = "1.8.10"
 kotlin-inject = "0.6.1"
 ksp = "1.8.10-1.0.9"
@@ -13,13 +12,12 @@ datetime = "0.4.0"
 decompose = "1.0.0"
 essenty = "1.0.0"
 detekt = "1.22.0"
+molecule = "0.8.0"
 mvikotlin = "3.2.0"
 serialization = "1.5.0-RC"
 
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.7.0"
-androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
@@ -43,6 +41,7 @@ ktor-client-core = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 mvikotlin-core = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
 mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
 mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "mvikotlin" }
@@ -81,14 +80,15 @@ mvikotlin = [
 ]
 
 [plugins]
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
+molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 versions-check = "com.github.ben-manes.versions:0.46.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
-ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

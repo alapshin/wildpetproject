@@ -2,6 +2,7 @@ package com.alapshin.multiplayground.login.domain
 
 class LoginMvi private constructor() {
     data class State(
+        val value: Int = 0,
         val error: Error? = null,
         val progress: Boolean = false,
         val success: Boolean? = null
@@ -9,10 +10,10 @@ class LoginMvi private constructor() {
 
     sealed interface Error
 
-    sealed interface Intent {
+    sealed interface Event {
         data class Login(
             val email: String,
             val password: String,
-        ) : Intent
+        ) : Event
     }
 }

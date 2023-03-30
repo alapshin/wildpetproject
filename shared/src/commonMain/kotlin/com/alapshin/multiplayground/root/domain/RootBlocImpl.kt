@@ -11,17 +11,16 @@ import me.tatarka.inject.annotations.Inject
 
 @Inject
 class RootBlocImpl(
+    private val navigation: StackNavigation<Config>,
     private val componentContext: ComponentContext,
     private val blocFactoryMap: Map<Config, BlocFactory>
 ) : RootBloc, ComponentContext by componentContext {
 
-    private val navigation = StackNavigation<Config>()
-
     private val _stack = childStack(
         source = navigation,
-        initialConfiguration = Config.Login,
         handleBackButton = true,
-        childFactory = ::child
+        childFactory = ::child,
+        initialConfiguration = Config.Login,
     )
     override val stack: Value<ChildStack<*, Child>> = _stack
 
