@@ -37,6 +37,7 @@ interface NetworkComponent {
     @NetworkScope
     fun httpClient(json: Json, logger: Logger): HttpClient {
         return HttpClient(CIO) {
+            expectSuccess = true
             developmentMode = true
             install(Logging) {
                 this.level = LogLevel.ALL
