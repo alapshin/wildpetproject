@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.alapshin.multiplayground.coroutines.DispatcherProvider
+import com.alapshin.multiplayground.coroutines.suspendCatching
 import com.alapshin.multiplayground.login.data.LoginManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -27,9 +28,15 @@ class LoginPresenterImpl(
             val e = email
             val p = password
             if (e != null && p != null) {
-                success = withContext(dispatcherProvider.io) {
-                    loginManager.login(e, p)
-                }.let { it.token != null }
+                withContext(dispatcherProvider.io) {
+                    suspendCatching {
+                        loginManager.login(e, p)
+                    }
+                }.onSuccess {
+                    success = true
+                }.onFailure {
+                    success = false
+                }
             }
         }
 
