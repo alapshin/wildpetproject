@@ -5,8 +5,8 @@ kotlin-inject = "0.6.1"
 ksp = "1.8.10-1.0.9"
 ktor = "2.2.4"
 ktorfit = "1.0.1"
-compose = "1.4.0"
-compose-desktop = "1.4.0-alpha01-dev1004"
+compose = "1.4.1"
+compose-desktop = "1.4.0-rc01"
 coroutines = "1.6.4"
 datetime = "0.4.0"
 decompose = "1.0.0"
@@ -21,8 +21,6 @@ androidx-activity-compose = "androidx.activity:activity-compose:1.7.0"
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-foundation = "androidx.compose.foundation:foundation:1.4.0"
-compose-material3-android = "androidx.compose.material3:material3:1.0.1"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
@@ -50,8 +48,6 @@ mvikotlin-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-
 
 [bundles]
 compose = [
-    "compose-foundation",
-    "compose-material3-android",
     "compose-ui",
     "compose-ui-preview",
     "compose-ui-tooling",
@@ -80,7 +76,7 @@ mvikotlin = [
 ]
 
 [plugins]
-ktorfit = { id = "de.jensklingenberg.ktorfit", version = "1.0.0" }
+ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
 gitversioning = "me.qoomon.git-versioning:6.4.2"
