@@ -1,5 +1,7 @@
 rootProject.name = "MultiPlayground"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(":shared")
 include(":android")
 include(":desktop")
@@ -20,8 +22,6 @@ dependencyResolutionManagement {
     }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 }
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 gradle.beforeProject {
     val localPropertiesFile = rootDir.resolve("local.properties")

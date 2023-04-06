@@ -5,22 +5,17 @@
  */
 @Suppress("MagicNumber")
 object Versioning {
-    private const val HASH_LENGTH = 1666666
-
     data class Version(
         val major: Int,
         val minor: Int,
-        val patch: Int
+        val patch: Int,
+        val count: Int = 0,
     ) {
         fun name() = "$major.$minor.$patch"
-        fun code(offset: Int = 0) = 1_000_000 * major + 10_000 * minor + 100 * patch + offset
+        fun code() = 1_000_000 * major + 10_000 * minor + 100 * patch + count
     }
 
-    private val regex = Regex("""(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)""")
-
-    fun commit(): String {
-        return execute("git rev-parse --short=$HASH_LENGTH HEAD")
-    }
+    private val regex = """(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-(?<count>\d+)-(?<hash>\w+)""".toRegex()
 
     fun version(name: String): Version = parse(name)
 
@@ -30,18 +25,16 @@ object Versioning {
      * It is assumed that input string represents output of `git describe` command
      */
     internal fun parse(input: String): Version {
-        val groups = regex.matchEntire(input)?.groups
+        val groups = regex.find(input)?.groups
         val major = checkNotNull(groups?.get("major")?.value).toInt()
         val minor = checkNotNull(groups?.get("minor")?.value).toInt()
         val patch = checkNotNull(groups?.get("patch")?.value).toInt()
+        val count = checkNotNull(groups?.get("count")?.value).toInt()
         return Version(
             major = major,
             minor = minor,
-            patch = patch
+            patch = patch,
+            count = count
         )
-    }
-
-    private fun execute(command: String): String {
-        return Runtime.getRuntime().exec(command).inputStream.bufferedReader().readText().trim()
     }
 }

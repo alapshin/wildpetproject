@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+
 plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.application)
@@ -12,8 +14,8 @@ android {
         applicationId = "com.example.multiplayground.android"
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
-        versionCode = 1
-        versionName = "1.0"
+        versionName = project.version.toString()
+        versionCode = Versioning.version(rootProject.version.toString()).code()
     }
 
     compileOptions {
@@ -35,6 +37,16 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+        }
+    }
+
+    applicationVariants.all {
+        outputs.filterIsInstance<BaseVariantOutputImpl>().forEach { output ->
+            output.outputFileName = if (flavorName.isEmpty()) {
+                "${rootProject.name}-${buildType.name}-$versionName.apk"
+            } else {
+                "${rootProject.name}-$flavorName-${buildType.name}-$versionName.apk"
+            }
         }
     }
 }

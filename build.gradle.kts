@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.detekt)
+    alias(libs.plugins.gitversioning)
     alias(libs.plugins.versions.check)
     alias(libs.plugins.versions.update)
 
@@ -60,5 +61,12 @@ versionCatalogUpdate {
 tasks.withType<DependencyUpdatesTask>().configureEach {
     rejectVersionIf {
         isNonStable(candidate.version) && !isNonStable(currentVersion)
+    }
+}
+
+gitVersioning.apply {
+    // Optional fallback configuration in case of no matching ref configuration
+    rev {
+        version = "\${describe.tag.version}-\${describe.distance}-\${commit.short}\${dirty}"
     }
 }

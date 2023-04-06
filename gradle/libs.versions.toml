@@ -80,9 +80,10 @@ mvikotlin = [
 ]
 
 [plugins]
-ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
+ktorfit = { id = "de.jensklingenberg.ktorfit", version = "1.0.0" }
 molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
+gitversioning = "me.qoomon.git-versioning:6.4.2"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 versions-check = "com.github.ben-manes.versions:0.46.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
