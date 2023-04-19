@@ -1,14 +1,34 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.jetbrains.compose)
 }
 
+@Suppress("UnusedPrivateProperty")
+kotlin {
+    jvmToolchain(19)
+
+    android()
+    sourceSets {
+        val androidMain by getting {
+            dependencies {
+                implementation(projects.shared)
+            }
+        }
+    }
+}
+
 android {
+    kotlin {
+        jvmToolchain(19)
+    }
+
     namespace = "com.example.multiplayground.android"
     compileSdk = Versions.compileSdk
+
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
         applicationId = "com.example.multiplayground.android"
@@ -18,18 +38,7 @@ android {
         versionCode = Versioning.version(rootProject.version.toString()).code()
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
-    }
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -49,11 +58,4 @@ android {
             }
         }
     }
-}
-
-dependencies {
-    implementation(projects.shared)
-    implementation(libs.bundles.compose)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.decompose.core)
 }

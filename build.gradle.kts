@@ -1,7 +1,5 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.detekt)
@@ -39,10 +37,6 @@ allprojects {
 
     dependencies {
         detektPlugins(rootProject.libs.detekt.formatting)
-    }
-
-    tasks.withType<KotlinCompile>() {
-        kotlinOptions.jvmTarget = JvmTarget.JVM_11.target
     }
 
     tasks.withType<Detekt>().configureEach {

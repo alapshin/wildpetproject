@@ -15,7 +15,7 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(19)
 
     android()
     jvm("desktop")
@@ -39,6 +39,7 @@ kotlin {
                 api(compose.materialIconsExtended)
                 // Needed only for preview.
                 implementation(compose.preview)
+                implementation(compose.uiTooling)
 
                 implementation(libs.kamel)
                 implementation(libs.decompose.core)
@@ -64,11 +65,18 @@ kotlin {
         }
 
         val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.common)
+            }
         }
     }
 }
 
 android {
+    kotlin {
+        jvmToolchain(19)
+    }
+
     namespace = "com.example.multiplayground"
     compileSdk = Versions.compileSdk
 
@@ -77,11 +85,9 @@ android {
         targetSdk = Versions.targetSdk
     }
 
-    // This is needed due to https://issuetracker.google.com/issues/260059413
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 }
 
 buildkonfig {
