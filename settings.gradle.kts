@@ -1,7 +1,6 @@
 rootProject.name = "MultiPlayground"
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
+include(":backend")
 include(":shared")
 include(":android")
 include(":desktop")
@@ -35,3 +34,5 @@ gradle.beforeProject {
         }
     }
 }
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
