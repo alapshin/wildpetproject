@@ -15,7 +15,7 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(19)
+    jvmToolchain(11)
 
     android()
     jvm("desktop")
@@ -73,10 +73,6 @@ kotlin {
 }
 
 android {
-    kotlin {
-        jvmToolchain(19)
-    }
-
     namespace = "com.example.multiplayground"
     compileSdk = Versions.compileSdk
 

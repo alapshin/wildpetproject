@@ -8,7 +8,7 @@ plugins {
 
 @Suppress("UnusedPrivateProperty")
 kotlin {
-    jvmToolchain(19)
+    jvmToolchain(11)
 
     android()
     sourceSets {
@@ -21,10 +21,6 @@ kotlin {
 }
 
 android {
-    kotlin {
-        jvmToolchain(19)
-    }
-
     namespace = "com.example.multiplayground.android"
     compileSdk = Versions.compileSdk
 
