@@ -21,13 +21,13 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.multiplayground.android"
+    namespace = "com.alapshin.multiplayground.android"
     compileSdk = Versions.compileSdk
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
-        applicationId = "com.example.multiplayground.android"
+        applicationId = "com.alapshin.multiplayground.android"
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
         versionName = project.version.toString()

@@ -73,7 +73,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.multiplayground"
+    namespace = "com.alapshin.multiplayground"
     compileSdk = Versions.compileSdk
 
     defaultConfig {
