@@ -45,6 +45,7 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
                 implementation(libs.essenty.parcelable)
+                implementation(libs.markdown)
                 implementation(libs.molecule)
                 implementation(libs.bundles.mvikotlin)
 
