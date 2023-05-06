@@ -12,4 +12,8 @@ application {
 dependencies {
     implementation(libs.logback)
     implementation(libs.bundles.ktor.server)
+
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.ktor.server.test)
+    testImplementation(libs.ktor.client.content)
 }
