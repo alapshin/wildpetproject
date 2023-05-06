@@ -2,8 +2,6 @@ package com.alapshin.multiplayground
 
 import com.alapshin.multiplayground.auth.Credentials
 import com.alapshin.multiplayground.auth.UserSession
-import com.alapshin.multiplayground.users.data.User
-import com.alapshin.multiplayground.users.data.UserRoutes
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -22,12 +20,6 @@ import io.ktor.server.sessions.sessions
 import io.ktor.server.sessions.set
 import io.ktor.util.hex
 import kotlinx.serialization.json.Json
-
-val users = listOf(
-    User(1, "john"),
-    User(2, "mark"),
-    User(3, "pavel")
-)
 
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 
@@ -72,9 +64,6 @@ private fun Application.configureRouting() {
             } else {
                 call.respond(HttpStatusCode.NotFound)
             }
-        }
-        get<UserRoutes> {
-            call.respond(users)
         }
     }
 }
