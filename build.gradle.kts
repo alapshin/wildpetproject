@@ -1,5 +1,7 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.detekt)
@@ -28,6 +30,16 @@ tasks.register("detektAll") {
 }
 
 allprojects {
+    // Set JVM target for compile tasks
+    // Using task options instead of jvmToolchain property because this allows to use already
+    // installed JDK  even if JDK version is greater that target version
+    tasks.withType<KotlinCompile> {
+        compilerOptions {
+            allWarningsAsErrors.set(true)
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
+
     apply(plugin = rootProject.libs.plugins.detekt.get().pluginId)
 
     detekt {

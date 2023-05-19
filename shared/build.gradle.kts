@@ -15,8 +15,6 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(11)
-
     android()
     jvm("desktop")
 
@@ -80,6 +78,11 @@ android {
     defaultConfig {
         minSdk = Versions.minSdk
         targetSdk = Versions.targetSdk
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     sourceSets["main"].res.srcDirs("src/androidMain/res")

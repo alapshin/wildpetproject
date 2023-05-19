@@ -8,8 +8,6 @@ plugins {
 
 @Suppress("UnusedPrivateProperty")
 kotlin {
-    jvmToolchain(11)
-
     android()
     sourceSets {
         val androidMain by getting {
@@ -25,6 +23,11 @@ android {
     compileSdk = Versions.compileSdk
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 
     defaultConfig {
         applicationId = "com.alapshin.multiplayground.android"
