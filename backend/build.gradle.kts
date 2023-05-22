@@ -6,7 +6,7 @@ plugins {
 }
 
 application {
-    mainClass.set("com.alapshin.multiplayground.ServerKt")
+    mainClass.set("com.alapshin.multiplayground.ApplicationKt")
 }
 
 dependencies {
