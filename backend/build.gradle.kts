@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+kotlin {
+    jvmToolchain(19)
+}
+
 application {
     mainClass.set("com.alapshin.multiplayground.ApplicationKt")
 }
