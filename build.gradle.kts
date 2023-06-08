@@ -62,6 +62,16 @@ allprojects {
 
 versionCatalogUpdate {
     sortByKey.set(false)
+    pin {
+        versions.set(listOf(
+            "agp",
+            "kotlin",
+            "ksp"
+        ))
+    }
+    keep {
+        keepUnusedVersions.set(true)
+    }
 }
 
 tasks.withType<DependencyUpdatesTask>().configureEach {
