@@ -5,8 +5,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
-kotlin {
-    jvmToolchain(19)
+java {
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 application {
