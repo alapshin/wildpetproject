@@ -56,7 +56,7 @@ private fun Application.configureRouting() {
         get("/") {
             call.respond(HttpStatusCode.OK)
         }
-        post("/login") {
+        post("/login/") {
             val credentials = call.receive<Credentials>()
             if (credentials.username.isNotEmpty() && credentials.password.isNotEmpty()) {
                 call.sessions.set(UserSession(credentials.username))
