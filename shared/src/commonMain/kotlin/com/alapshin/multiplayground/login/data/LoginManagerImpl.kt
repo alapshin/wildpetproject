@@ -6,7 +6,7 @@ import me.tatarka.inject.annotations.Inject
 class LoginManagerImpl(
     private val service: LoginService,
 ) : LoginManager {
-    override suspend fun login(email: String, password: String): LoginResponse {
-        return service.login(LoginRequest(email = email, password = password))
+    override suspend fun login(username: String, password: String): LoginResponse {
+        return service.login(LoginRequest(username = username, password = password))
     }
 }
