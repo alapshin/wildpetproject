@@ -2,6 +2,7 @@ package com.alapshin.multiplayground
 
 import com.alapshin.multiplayground.auth.Credentials
 import com.alapshin.multiplayground.auth.UserSession
+import com.alapshin.multiplayground.users.data.User
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -60,7 +61,7 @@ private fun Application.configureRouting() {
             val credentials = call.receive<Credentials>()
             if (credentials.username.isNotEmpty() && credentials.password.isNotEmpty()) {
                 call.sessions.set(UserSession(credentials.username))
-                call.respond(HttpStatusCode.OK)
+                call.respond(HttpStatusCode.OK, User(0, ""))
             } else {
                 call.respond(HttpStatusCode.NotFound)
             }
