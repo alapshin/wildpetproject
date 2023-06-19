@@ -11,5 +11,7 @@ class UserListMvi private constructor() {
 
     sealed interface Error
 
-    sealed interface Intent
+    sealed interface Event {
+        object Load : Event
+    }
 }

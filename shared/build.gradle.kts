@@ -45,7 +45,6 @@ kotlin {
                 implementation(libs.essenty.parcelable)
                 implementation(libs.markdown)
                 implementation(libs.molecule)
-                implementation(libs.bundles.mvikotlin)
 
                 implementation(libs.kermit)
                 implementation(libs.kotlin.inject.runtime)

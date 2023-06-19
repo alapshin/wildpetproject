@@ -8,8 +8,6 @@ import com.alapshin.multiplayground.root.domain.RootBlocImpl
 import com.alapshin.multiplayground.users.di.UserComponent
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.mvikotlin.core.store.StoreFactory
-import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides
 import me.tatarka.inject.annotations.Scope
@@ -30,9 +28,6 @@ abstract class DescomposeComponent(
 
     @Provides
     fun rootBloc(bloc: RootBlocImpl): RootBloc = bloc
-
-    @Provides
-    fun storeFactory(): StoreFactory = DefaultStoreFactory()
 
     @Provides
     fun componentContext(): ComponentContext = componentContext

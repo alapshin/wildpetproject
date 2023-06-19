@@ -11,7 +11,6 @@ decompose = "2.0.0-beta-01"
 essenty = "1.1.0"
 detekt = "1.23.0"
 molecule = "0.9.0"
-mvikotlin = "3.2.1"
 serialization = "1.5.1"
 compose-multiplatform = "1.4.0"
 
@@ -44,11 +43,6 @@ ktor-server-test = { module = "io.ktor:ktor-server-test-host", version.ref = "kt
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 markdown = "org.jetbrains:markdown:0.4.1"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
-mvikotlin-core = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
-mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
-mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "mvikotlin" }
-mvikotlin-timetravel = { module = "com.arkivanov.mvikotlin:mvikotlin-timetravel", version.ref = "mvikotlin" }
-mvikotlin-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
 
 [bundles]
 decompose = [
@@ -70,13 +64,6 @@ ktor-server = [
     "ktor-server-content",
     "ktor-server-core",
     "ktor-server-resources",
-]
-mvikotlin = [
-    "mvikotlin-core",
-    "mvikotlin-coroutines",
-    "mvikotlin-logging",
-    "mvikotlin-main",
-    "mvikotlin-timetravel",
 ]
 
 [plugins]
