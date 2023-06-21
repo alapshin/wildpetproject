@@ -1,0 +1,14 @@
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+
+insert:
+INSERT INTO users(username, password)
+VALUES (:username, :password);
+
+select:
+SELECT user_id, username
+FROM users
+WHERE username = :username AND password = :password;

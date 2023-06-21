@@ -1,4 +1,4 @@
-import com.alapshin.multiplayground.auth.Credentials
+import com.alapshin.multiplayground.auth.model.Credentials
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
