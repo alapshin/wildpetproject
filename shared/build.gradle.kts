@@ -47,7 +47,7 @@ kotlin {
                 implementation(libs.molecule)
 
                 implementation(libs.kermit)
-                implementation(libs.kotlin.inject.runtime)
+                implementation(libs.kotlininject.runtime)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.kotlinx.serialization)
 
@@ -101,7 +101,7 @@ dependencies {
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspCommonMainMetadata", libs.ktorfit.ksp)
 
-    add("kspDesktop", libs.kotlin.inject.ksp)
-    add("kspAndroid", libs.kotlin.inject.ksp)
-    add("kspCommonMainMetadata", libs.kotlin.inject.ksp)
+    add("kspDesktop", libs.kotlininject.ksp)
+    add("kspAndroid", libs.kotlininject.ksp)
+    add("kspCommonMainMetadata", libs.kotlininject.ksp)
 }
