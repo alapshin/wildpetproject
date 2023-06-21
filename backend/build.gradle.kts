@@ -1,23 +1,38 @@
 plugins {
     application
     alias(libs.plugins.ktor)
-    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
 }
 
-java {
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
 application {
-    mainClass.set("com.alapshin.multiplayground.ApplicationKt")
+   mainClass.set("com.alapshin.multiplayground.ApplicationKt")
 }
 
-dependencies {
-    implementation(libs.logback)
-    implementation(libs.bundles.ktor.server)
+kotlin {
+    jvm {
+        withJava()
+    }
 
-    testImplementation(libs.kotlin.test)
-    testImplementation(libs.ktor.server.test)
-    testImplementation(libs.ktor.client.content)
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation(libs.logback)
+            }
+        }
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.bundles.ktor.server)
+                implementation(libs.kotlininject.runtime)
+
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+                implementation(libs.ktor.server.test)
+                implementation(libs.ktor.client.content)
+            }
+        }
+    }
 }

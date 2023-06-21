@@ -31,6 +31,9 @@ tasks.register("detektAll") {
 
 allprojects {
     // Set JVM target for compile tasks
+    tasks.withType<JavaCompile> {
+        targetCompatibility = JavaVersion.VERSION_11.toString()
+    }
     // Using task option instead of jvmToolchain property because it allows to use already
     // installed JDK even if JDK version is greater than target version
     tasks.withType<KotlinCompile> {
