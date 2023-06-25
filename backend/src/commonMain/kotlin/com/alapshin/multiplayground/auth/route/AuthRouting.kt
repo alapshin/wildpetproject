@@ -11,7 +11,7 @@ import io.ktor.server.routing.Routing
 import io.ktor.server.routing.post
 
 fun Routing.setupAuthRouting(database: Database) {
-    post("/login/") {
+    post("/auth/login/") {
         with(call) {
             val credentials = receive<Credentials>()
             val user = database.usersQueries
@@ -30,7 +30,7 @@ fun Routing.setupAuthRouting(database: Database) {
         }
     }
 
-    post("/register/") {
+    post("/auth/register/") {
         with(call) {
             val credentials = receive<Credentials>()
             database.usersQueries.insert(credentials.username, credentials.password)
