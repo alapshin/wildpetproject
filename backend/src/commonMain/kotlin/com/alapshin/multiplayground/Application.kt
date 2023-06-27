@@ -34,7 +34,8 @@ fun Application.module() {
 
 @Suppress("UnusedPrivateProperty")
 private fun Application.diModule() {
-    val databaseComponent = DatabaseComponent::class.create("database.sqlite")
+    val filename = environment.config.propertyOrNull("database.filename")?.getString() ?: ""
+    val databaseComponent = DatabaseComponent::class.create(filename)
     val applicationComponent: ApplicationComponent = ApplicationComponent::class.create(
         databaseComponent = databaseComponent
     )

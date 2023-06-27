@@ -2,6 +2,7 @@ package com.alapshin.multiplayground.auth
 
 import com.alapshin.multiplayground.auth.model.Credentials
 import com.alapshin.multiplayground.test.createDefaultClient
+import com.alapshin.multiplayground.test.unitTestApplication
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.HttpStatusCode
@@ -24,7 +25,7 @@ class AuthTest {
     }
 
     @Test
-    fun testRegister() = testApplication {
+    fun testRegister() = unitTestApplication {
         val client = createDefaultClient()
         val response = client.post("/auth/register/") {
             setBody(Credentials(username = "john", password = "12345678"))
