@@ -1,5 +1,6 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
-    application
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
 
@@ -20,7 +21,13 @@ sqldelight {
     }
 }
 
+@Suppress("UnusedPrivateProperty")
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    // Enable the default target hierarchy:
+    // https://kotlinlang.org/docs/whatsnew1820.html#new-approach-to-source-set-hierarchy
+    targetHierarchy.default()
+
     jvm {
         withJava()
     }
