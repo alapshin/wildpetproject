@@ -4,7 +4,7 @@ kotlin = "1.8.20"
 kotlin-inject = "0.6.1"
 ksp = "1.8.20-1.0.11"
 ktor = "2.3.1"
-ktorfit = "1.4.1"
+ktorfit = "1.4.2"
 coroutines = "1.6.4"
 datetime = "0.4.0"
 decompose = "2.0.0-beta-01"
@@ -12,15 +12,15 @@ essenty = "1.1.0"
 detekt = "1.23.0"
 molecule = "0.9.0"
 serialization = "1.5.1"
-sqldelight = "2.0.0-rc01"
-compose-multiplatform = "1.4.0"
+sqldelight = "2.0.0-rc02"
+compose-multiplatform = "1.4.1"
 
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
-logback = "ch.qos.logback:logback-classic:1.4.7"
+logback = "ch.qos.logback:logback-classic:1.4.8"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 kermit = "co.touchlab:kermit:1.2.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -43,8 +43,7 @@ ktor-server-test = { module = "io.ktor:ktor-server-test-host", version.ref = "kt
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 markdown = "org.jetbrains:markdown:0.4.1"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
-sqldelight-driver-jvm = {module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
-sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 
 [bundles]
 decompose = [
@@ -75,7 +74,7 @@ molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
 gitversioning = "me.qoomon.git-versioning:6.4.2"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-versions-check = "com.github.ben-manes.versions:0.46.0"
+versions-check = "com.github.ben-manes.versions:0.47.0"
 versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
