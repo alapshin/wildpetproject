@@ -5,20 +5,16 @@ import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides
 
 @Component
-@ApplicationScope
 abstract class DatabaseComponent(private val filename: String) {
     @Provides
-    @ApplicationScope
     fun database(databaseFactory: DatabaseFactory): Database {
         return databaseFactory.createDatabase(filename)
     }
 
     @Provides
-    @ApplicationScope
     fun sqlDriverFactory(): SqlDriverFactory = SqlDriverFactory()
 
     @Provides
-    @ApplicationScope
     fun provideDatabaseFactory(driverFactory: SqlDriverFactory): DatabaseFactory {
         return DefaultDbFactory(driverFactory)
     }

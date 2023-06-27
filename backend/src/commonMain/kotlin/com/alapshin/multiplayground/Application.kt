@@ -1,8 +1,10 @@
 package com.alapshin.multiplayground
 
+import com.alapshin.multiplayground.create
 import com.alapshin.multiplayground.auth.model.UserSession
-import com.alapshin.multiplayground.auth.route.setupAuthRouting
-import com.alapshin.multiplayground.db.Database
+import com.alapshin.multiplayground.core.RouterManager
+import com.alapshin.multiplayground.db.DatabaseComponent
+import com.alapshin.multiplayground.db.create
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -19,23 +21,27 @@ import io.ktor.server.sessions.cookie
 import io.ktor.util.hex
 import kotlinx.serialization.json.Json
 
+lateinit var routerManager: RouterManager
+
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
-//    val database = setupDatabase()
-    configureAuth()
-//    configureRouting(database)
-    configureSerialization()
+    diModule()
+    authModule()
+    routingModule()
+    serializationModule()
 }
 
-private fun setupDI() {
-//    val dbComponent = DatabaseComponent::class.create("database.sqlite")
-//    val appComponent = ApplicationComponent::class.create(
-//        databaseComponent = dbComponent
-//    )
+@Suppress("UnusedPrivateProperty")
+private fun Application.diModule() {
+    val databaseComponent = DatabaseComponent::class.create("database.sqlite")
+    val applicationComponent: ApplicationComponent = ApplicationComponent::class.create(
+        databaseComponent = databaseComponent
+    )
+    routerManager = applicationComponent.routerManager
 }
 
-private fun Application.configureAuth() {
+private fun Application.authModule() {
     install(Sessions) {
         val secretSignKey = hex("6819b57a326945c1968f45236589")
         val secretEncryptKey = hex("00112233445566778899aabbccddeeff")
@@ -56,17 +62,13 @@ private fun Application.configureAuth() {
     }
 }
 
-private fun Application.configureRouting(database: Database) {
-    install(Resources)
+private fun Application.routingModule() {
     routing {
-        get("/") {
-            call.respond(HttpStatusCode.OK)
-        }
-        setupAuthRouting(database)
+        routerManager.setup(this)
     }
 }
 
-private fun Application.configureSerialization() {
+private fun Application.serializationModule() {
     install(ContentNegotiation) {
         json(
             Json {
