@@ -50,10 +50,6 @@ allprojects {
         buildUponDefaultConfig = true
     }
 
-    dependencies {
-        detektPlugins(rootProject.libs.detekt.formatting)
-    }
-
     tasks.withType<Detekt>().configureEach {
         setSource(files(project.projectDir))
         exclude("**/build/**")

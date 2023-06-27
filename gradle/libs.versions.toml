@@ -20,7 +20,6 @@ androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
-detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 logback = "ch.qos.logback:logback-classic:1.4.7"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 kermit = "co.touchlab:kermit:1.2.2"
