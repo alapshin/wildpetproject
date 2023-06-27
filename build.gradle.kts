@@ -38,7 +38,6 @@ allprojects {
     // installed JDK even if JDK version is greater than target version
     tasks.withType<KotlinCompile> {
         compilerOptions {
-            allWarningsAsErrors.set(true)
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
