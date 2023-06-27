@@ -1,0 +1,7 @@
+ktor:
+  environment: test
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - com.alapshin.multiplayground.ApplicationKt.module

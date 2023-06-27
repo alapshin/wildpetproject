@@ -7,7 +7,7 @@ import io.ktor.server.testing.testApplication
 fun unitTestApplication(block: suspend ApplicationTestBuilder.() -> Unit) {
     testApplication {
         environment {
-            config = ApplicationConfig("application-test.conf")
+            config = ApplicationConfig("application-test.yaml")
         }
         block()
     }
