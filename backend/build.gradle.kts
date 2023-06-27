@@ -1,8 +1,10 @@
 plugins {
     application
-    alias(libs.plugins.ktor)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
+
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.ktor)
     alias(libs.plugins.sqldelight)
 }
 
@@ -13,7 +15,7 @@ application {
 sqldelight {
     databases {
         create("Database") {
-            packageName.set("com.alapshin.multiplayground")
+            packageName.set("com.alapshin.multiplayground.db")
         }
     }
 }
@@ -45,4 +47,13 @@ kotlin {
             }
         }
     }
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
+dependencies {
+    add("kspJvm", libs.kotlininject.ksp)
+    add("kspCommonMainMetadata", libs.kotlininject.ksp)
 }

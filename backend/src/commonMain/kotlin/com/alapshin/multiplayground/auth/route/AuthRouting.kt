@@ -1,7 +1,7 @@
 package com.alapshin.multiplayground.auth.route
 
-import com.alapshin.multiplayground.Database
 import com.alapshin.multiplayground.auth.model.Credentials
+import com.alapshin.multiplayground.db.Database
 import com.alapshin.multiplayground.users.data.User
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call

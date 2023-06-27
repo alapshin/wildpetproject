@@ -2,6 +2,8 @@ package com.alapshin.multiplayground
 
 import com.alapshin.multiplayground.auth.model.UserSession
 import com.alapshin.multiplayground.auth.route.setupAuthRouting
+import com.alapshin.multiplayground.db.Database
+import com.alapshin.multiplayground.db.DatabaseComponent
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -17,18 +19,23 @@ import io.ktor.server.sessions.Sessions
 import io.ktor.server.sessions.cookie
 import io.ktor.util.hex
 import kotlinx.serialization.json.Json
+import com.alapshin.multiplayground.create
+import com.alapshin.multiplayground.db.create
 
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
-    val database = setupDatabase()
+//    val database = setupDatabase()
     configureAuth()
-    configureRouting(database)
+//    configureRouting(database)
     configureSerialization()
 }
 
-private fun setupDatabase(): Database {
-    return createDatabase(DriverFactory())
+private fun setupDI() {
+    val dbComponent = DatabaseComponent::class.create("database.sqlite")
+    val appComponent = ApplicationComponent::class.create(
+        databaseComponent = dbComponent
+    )
 }
 
 private fun Application.configureAuth() {
