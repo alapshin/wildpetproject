@@ -1,6 +1,5 @@
 package com.alapshin.multiplayground.db
 
-import app.cash.sqldelight.db.SqlDriver
 import com.alapshin.multiplayground.di.ApplicationScope
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.Provides

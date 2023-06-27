@@ -9,7 +9,7 @@ plugins {
 }
 
 application {
-   mainClass.set("com.alapshin.multiplayground.ApplicationKt")
+    mainClass.set("com.alapshin.multiplayground.ApplicationKt")
 }
 
 sqldelight {
@@ -36,7 +36,6 @@ kotlin {
             dependencies {
                 implementation(libs.bundles.ktor.server)
                 implementation(libs.kotlininject.runtime)
-
             }
         }
         val commonTest by getting {
