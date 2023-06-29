@@ -2,9 +2,12 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jmailen.gradle.kotlinter.tasks.FormatTask
+import org.jmailen.gradle.kotlinter.tasks.LintTask
 
 plugins {
     alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlinter)
     alias(libs.plugins.gitversioning)
     alias(libs.plugins.versions.check)
     alias(libs.plugins.versions.update)
@@ -43,7 +46,6 @@ allprojects {
     }
 
     apply(plugin = rootProject.libs.plugins.detekt.get().pluginId)
-
     detekt {
         autoCorrect = true
         buildUponDefaultConfig = true
@@ -55,6 +57,14 @@ allprojects {
         exclude {
             it.file.relativeTo(projectDir).startsWith(project.buildDir.relativeTo(projectDir))
         }
+    }
+
+    apply(plugin = rootProject.libs.plugins.kotlinter.get().pluginId)
+    tasks.withType<LintTask>().configureEach {
+        exclude { it.file.path.contains("generated/")}
+    }
+    tasks.withType<FormatTask>().configureEach {
+        exclude { it.file.path.contains("generated/")}
     }
 }
 

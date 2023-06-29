@@ -4,6 +4,7 @@ kotlin = "1.8.20"
 kotlin-inject = "0.6.1"
 ksp = "1.8.20-1.0.11"
 ktor = "2.3.1"
+ktlint = "0.50.0"
 ktorfit = "1.4.2"
 coroutines = "1.6.4"
 datetime = "0.4.0"
@@ -73,11 +74,8 @@ ktor-server = [
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 molecule = { id = "app.cash.molecule", version.ref = "molecule" }
-buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
-gitversioning = "me.qoomon.git-versioning:6.4.2"
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-versions-check = "com.github.ben-manes.versions:0.47.0"
-versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -87,4 +85,11 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+
+kotlinter = "org.jmailen.kotlinter:3.15.0"
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
+gitversioning = "me.qoomon.git-versioning:6.4.2"
+versions-check = "com.github.ben-manes.versions:0.47.0"
+versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
+
