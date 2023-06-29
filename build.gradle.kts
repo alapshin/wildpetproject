@@ -26,12 +26,6 @@ plugins {
     alias(libs.plugins.molecule).apply(false)
 }
 
-tasks.register("detektAll") {
-    allprojects {
-        this@register.dependsOn(tasks.withType<Detekt>())
-    }
-}
-
 allprojects {
     // Set JVM target for compile tasks
     tasks.withType<JavaCompile> {
@@ -51,6 +45,11 @@ allprojects {
         buildUponDefaultConfig = true
     }
 
+    tasks.register("detektAll") {
+        allprojects {
+            this@register.dependsOn(tasks.withType<Detekt>())
+        }
+    }
     tasks.withType<Detekt>().configureEach {
         setSource(files(project.projectDir))
         exclude("**/build/**")
