@@ -1,20 +1,19 @@
 package com.alapshin.multiplayground
 
-import com.alapshin.multiplayground.create
 import com.alapshin.multiplayground.auth.model.UserSession
 import com.alapshin.multiplayground.core.RouterManager
 import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.db.create
 import io.ktor.http.HttpStatusCode
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.application.*
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.application.Application
+import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.session
-import io.ktor.server.cio.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.resources.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.server.cio.EngineMain
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.response.respond
+import io.ktor.server.routing.routing
 import io.ktor.server.sessions.SessionTransportTransformerEncrypt
 import io.ktor.server.sessions.Sessions
 import io.ktor.server.sessions.cookie
@@ -37,7 +36,7 @@ private fun Application.diModule() {
     val filename = environment.config.propertyOrNull("database.filename")?.getString() ?: ""
     val databaseComponent = DatabaseComponent::class.create(filename)
     val applicationComponent: ApplicationComponent = ApplicationComponent::class.create(
-        databaseComponent = databaseComponent
+        databaseComponent = databaseComponent,
     )
     routerManager = applicationComponent.routerManager
 }
@@ -74,7 +73,7 @@ private fun Application.serializationModule() {
         json(
             Json {
                 prettyPrint = true
-            }
+            },
         )
     }
 }

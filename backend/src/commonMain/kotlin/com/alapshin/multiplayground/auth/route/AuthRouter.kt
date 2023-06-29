@@ -12,8 +12,8 @@ import me.tatarka.inject.annotations.Inject
 
 @Inject
 class AuthRouter(
-    private val controller: AuthController
-): Router {
+    private val controller: AuthController,
+) : Router {
     override fun setup(routing: Routing) {
         routing.apply {
             post("/auth/login/") {
@@ -24,7 +24,7 @@ class AuthRouter(
                     val credentials = receive<Credentials>()
                     val user = controller.register(
                         username = credentials.username,
-                        password = credentials.password
+                        password = credentials.password,
                     )
                     respond(HttpStatusCode.OK, user)
                 }

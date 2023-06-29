@@ -16,7 +16,7 @@ import me.tatarka.inject.annotations.Provides
 @Component
 @ApplicationScope
 abstract class ApplicationComponent(
-    @Component val databaseComponent: DatabaseComponent
+    @Component val databaseComponent: DatabaseComponent,
 ) {
     abstract val routerManager: RouterManager
 
@@ -28,9 +28,11 @@ abstract class ApplicationComponent(
     @Provides
     @ApplicationScope
     fun authRouter(controller: AuthController): Router = AuthRouter(controller)
+
     @Provides
     @ApplicationScope
     fun authController(controller: AuthControllerImpl): AuthController = controller
+
     @Provides
     @ApplicationScope
     fun authRepository(repository: AuthRepositoryImpl): AuthRepository = repository
