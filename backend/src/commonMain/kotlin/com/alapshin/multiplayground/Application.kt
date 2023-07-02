@@ -1,6 +1,8 @@
 package com.alapshin.multiplayground
 
 import com.alapshin.multiplayground.auth.model.UserSession
+import com.alapshin.multiplayground.config.ConfigComponent
+import com.alapshin.multiplayground.config.create
 import com.alapshin.multiplayground.core.RouterManager
 import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.db.create
@@ -11,6 +13,7 @@ import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.session
 import io.ktor.server.cio.EngineMain
+import io.ktor.server.http.content.staticResources
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.respond
 import io.ktor.server.routing.routing
@@ -27,15 +30,19 @@ fun main(args: Array<String>): Unit = EngineMain.main(args)
 fun Application.module() {
     diModule()
     authModule()
+    staticModule()
     routingModule()
     serializationModule()
 }
 
 @Suppress("UnusedPrivateProperty")
 private fun Application.diModule() {
-    val filename = environment.config.propertyOrNull("database.filename")?.getString() ?: ""
+    val config = environment.config
+    val filename = config.propertyOrNull("database.filename")?.getString() ?: ""
+    val configComponent = ConfigComponent::class.create(environment.config)
     val databaseComponent = DatabaseComponent::class.create(filename)
     val applicationComponent: ApplicationComponent = ApplicationComponent::class.create(
+        configComponent = configComponent,
         databaseComponent = databaseComponent,
     )
     routerManager = applicationComponent.routerManager
@@ -59,6 +66,12 @@ private fun Application.authModule() {
                 call.respond(HttpStatusCode.Unauthorized)
             }
         }
+    }
+}
+
+private fun Application.staticModule() {
+    routing {
+        staticResources("/.well-known/", "well-known")
     }
 }
 

@@ -36,6 +36,9 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(libs.logback)
+                implementation(libs.jjwt.api)
+                runtimeOnly(libs.jjwt.impl)
+                runtimeOnly(libs.jjwt.json)
                 implementation(libs.sqldelight.driver.jvm)
             }
         }
