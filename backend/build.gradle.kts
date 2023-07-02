@@ -1,12 +1,12 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlin.serialization)
-
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktor)
     alias(libs.plugins.sqldelight)
+
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 application {
@@ -21,48 +21,25 @@ sqldelight {
     }
 }
 
-@Suppress("UnusedPrivateProperty")
-@OptIn(ExperimentalKotlinGradlePluginApi::class)
-kotlin {
-    // Enable the default target hierarchy:
-    // https://kotlinlang.org/docs/whatsnew1820.html#new-approach-to-source-set-hierarchy
-    targetHierarchy.default()
+dependencies {
+    implementation(libs.logback)
 
-    jvm {
-        withJava()
-    }
+    implementation(libs.jjwt.api)
+    runtimeOnly(libs.jjwt.impl)
+    runtimeOnly(libs.jjwt.json)
 
-    sourceSets {
-        val jvmMain by getting {
-            dependencies {
-                implementation(libs.logback)
-                implementation(libs.jjwt.api)
-                runtimeOnly(libs.jjwt.impl)
-                runtimeOnly(libs.jjwt.json)
-                implementation(libs.sqldelight.driver.jvm)
-            }
-        }
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.bundles.ktor.server)
-                implementation(libs.kotlininject.runtime)
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.kotlin.test)
-                implementation(libs.ktor.server.test)
-                implementation(libs.ktor.client.content)
-            }
-        }
-    }
+    implementation(libs.sqldelight.driver.jvm)
+
+    implementation(libs.bundles.ktor.server)
+
+    ksp(libs.kotlininject.ksp)
+    implementation(libs.kotlininject.runtime)
+
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.ktor.server.test)
+    testImplementation(libs.ktor.client.content)
 }
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
-}
-
-dependencies {
-    add("kspJvm", libs.kotlininject.ksp)
-    add("kspCommonMainMetadata", libs.kotlininject.ksp)
 }
