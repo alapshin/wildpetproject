@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.users.data
+package com.alapshin.multiplayground.user.data
 
 import io.ktor.resources.Resource
 

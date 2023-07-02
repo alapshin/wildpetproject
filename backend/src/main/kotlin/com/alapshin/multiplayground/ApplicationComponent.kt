@@ -5,16 +5,17 @@ import com.alapshin.multiplayground.auth.model.AuthRepositoryImpl
 import com.alapshin.multiplayground.auth.route.AuthController
 import com.alapshin.multiplayground.auth.route.AuthControllerImpl
 import com.alapshin.multiplayground.auth.route.AuthRouter
-import com.alapshin.multiplayground.config.Config
 import com.alapshin.multiplayground.config.ConfigComponent
 import com.alapshin.multiplayground.core.Router
 import com.alapshin.multiplayground.core.RouterManager
 import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.di.ApplicationScope
 import com.alapshin.multiplayground.jwt.TokenCreator
-import com.auth0.jwk.JwkProvider
-import com.auth0.jwk.JwkProviderBuilder
-import io.ktor.server.config.ApplicationConfig
+import com.alapshin.multiplayground.user.model.UserRepository
+import com.alapshin.multiplayground.user.model.UserRepositoryImpl
+import com.alapshin.multiplayground.user.route.UserController
+import com.alapshin.multiplayground.user.route.UserControllerImpl
+import com.alapshin.multiplayground.user.route.UserRouter
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
@@ -49,4 +50,17 @@ abstract class ApplicationComponent(
     @Provides
     @ApplicationScope
     fun authRepository(repository: AuthRepositoryImpl): AuthRepository = repository
+
+    @IntoSet
+    @Provides
+    @ApplicationScope
+    fun userRouter(controller: UserController): Router = UserRouter(controller)
+
+    @Provides
+    @ApplicationScope
+    fun userController(controller: UserControllerImpl): UserController = controller
+
+    @Provides
+    @ApplicationScope
+    fun userRepository(repository: UserRepositoryImpl): UserRepository = repository
 }

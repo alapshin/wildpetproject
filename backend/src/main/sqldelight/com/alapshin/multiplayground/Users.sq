@@ -12,3 +12,8 @@ select:
 SELECT user_id, username
 FROM users
 WHERE username = :username AND password = :password;
+
+selectUserById:
+SELECT user_id, username
+FROM users
+WHERE user_id = :user_id;

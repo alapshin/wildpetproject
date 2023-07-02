@@ -1,7 +1,8 @@
 package com.alapshin.multiplayground.auth.model
 
 import com.alapshin.multiplayground.db.Database
-import com.alapshin.multiplayground.users.data.User
+import com.alapshin.multiplayground.db.runGettingLastId
+import com.alapshin.multiplayground.user.model.User
 import me.tatarka.inject.annotations.Inject
 
 @Inject
@@ -13,7 +14,11 @@ class AuthRepositoryImpl constructor(private val database: Database) : AuthRepos
     }
 
     override fun registerUser(username: String, password: String): User {
-        database.usersQueries.insert(username, password)
-        return User(0, username = username)
+        val userId = database.runGettingLastId {
+            database.usersQueries.insert(username, password)
+        }
+        return database.usersQueries.selectUserById(userId) { userId, username ->
+            User(userId, username)
+        }.executeAsOne()
     }
 }
