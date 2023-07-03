@@ -6,7 +6,6 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
-import io.ktor.server.response.etag
 import io.ktor.server.response.header
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Routing
@@ -24,7 +23,7 @@ class AuthRouter(
                     val (username, password) = receive<Credentials>()
                     val pair = controller.authenticate(
                         username = username,
-                        password = password
+                        password = password,
                     )
                     if (pair == null) {
                         respond(HttpStatusCode.NotFound)

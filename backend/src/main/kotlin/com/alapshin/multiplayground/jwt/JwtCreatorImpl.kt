@@ -7,7 +7,7 @@ import io.ktor.server.config.ApplicationConfig
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-class JwtCreatorImpl constructor(private val config: ApplicationConfig): JwtCreator {
+class JwtCreatorImpl constructor(private val config: ApplicationConfig) : JwtCreator {
     val secret = config.property(Config.JWT_SECRET).getString()
     val issuer = config.property(Config.JWT_ISSUER).getString()
     val audience = config.property(Config.JWT_AUDIENCE).getString()

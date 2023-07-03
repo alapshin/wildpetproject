@@ -5,13 +5,13 @@ import me.tatarka.inject.annotations.Inject
 
 @Inject
 class UserRepositoryImpl constructor(
-    private val database: Database
+    private val database: Database,
 ) : UserRepository {
     override fun getUser(userId: Long): User? {
         return database.usersQueries.selectUserById(userId) { userId, username ->
             User(
                 userId = userId,
-                username = username
+                username = username,
             )
         }.executeAsOneOrNull()
     }

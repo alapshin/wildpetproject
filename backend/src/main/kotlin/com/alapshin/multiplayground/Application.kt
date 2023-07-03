@@ -1,6 +1,5 @@
 package com.alapshin.multiplayground
 
-import com.alapshin.multiplayground.config.Config
 import com.alapshin.multiplayground.config.ConfigComponent
 import com.alapshin.multiplayground.config.Constants
 import com.alapshin.multiplayground.config.create

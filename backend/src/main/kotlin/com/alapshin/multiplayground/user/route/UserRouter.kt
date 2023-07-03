@@ -11,7 +11,7 @@ import me.tatarka.inject.annotations.Inject
 
 @Inject
 class UserRouter constructor(
-    private val controller: UserController
+    private val controller: UserController,
 ) : Router {
     override fun setup(routing: Routing) {
         routing.apply {
@@ -26,7 +26,6 @@ class UserRouter constructor(
                     }
                 }
             }
-
         }
     }
 }

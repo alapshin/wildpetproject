@@ -29,7 +29,6 @@ abstract class ApplicationComponent(
 ) {
     abstract val routerManager: RouterManager
 
-
     @Provides
     @ApplicationScope
     fun routerManager(routers: Set<Router>) = RouterManager(routers)
