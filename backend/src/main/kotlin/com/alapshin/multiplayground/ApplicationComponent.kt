@@ -9,7 +9,6 @@ import com.alapshin.multiplayground.config.ConfigComponent
 import com.alapshin.multiplayground.core.Router
 import com.alapshin.multiplayground.core.RouterManager
 import com.alapshin.multiplayground.db.DatabaseComponent
-import com.alapshin.multiplayground.di.ApplicationScope
 import com.alapshin.multiplayground.jwt.TokenCreator
 import com.alapshin.multiplayground.user.model.UserRepository
 import com.alapshin.multiplayground.user.model.UserRepositoryImpl
@@ -19,6 +18,7 @@ import com.alapshin.multiplayground.user.route.UserRouter
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
+import me.tatarka.inject.annotations.Scope
 
 @Component
 @ApplicationScope
@@ -64,3 +64,7 @@ abstract class ApplicationComponent(
     @ApplicationScope
     fun userRepository(repository: UserRepositoryImpl): UserRepository = repository
 }
+
+@Scope
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER)
+annotation class ApplicationScope

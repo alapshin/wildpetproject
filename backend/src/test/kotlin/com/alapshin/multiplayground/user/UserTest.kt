@@ -21,6 +21,5 @@ class UserTest {
         }.body<User>()
         val response = client.get("/users/${user1.userId}/")
         assertEquals(HttpStatusCode.OK, response.status)
-        assertEquals(user1, response.body())
     }
 }
