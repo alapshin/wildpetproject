@@ -24,10 +24,6 @@ sqldelight {
 dependencies {
     implementation(libs.logback)
 
-    implementation(libs.jjwt.api)
-    runtimeOnly(libs.jjwt.impl)
-    runtimeOnly(libs.jjwt.json)
-
     implementation(libs.sqldelight.driver.jvm)
 
     implementation(libs.bundles.ktor.server)

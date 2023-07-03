@@ -22,9 +22,6 @@ androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
-jjwt-api = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jjwt" }
-jjwt-impl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
-jjwt-json = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 kermit = "co.touchlab:kermit:1.2.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

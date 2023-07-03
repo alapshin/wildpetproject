@@ -1,5 +1,8 @@
 jwt:
+  realm: default
   secret: "deadbeef"
+  issuer: "http://0.0.0.0:8080/"
+  audience: "http://0.0.0.0:8080/hello/"
 
 ktor:
   environment: dev

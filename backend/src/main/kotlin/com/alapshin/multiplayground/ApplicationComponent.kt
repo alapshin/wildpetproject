@@ -9,7 +9,7 @@ import com.alapshin.multiplayground.config.ConfigComponent
 import com.alapshin.multiplayground.core.Router
 import com.alapshin.multiplayground.core.RouterManager
 import com.alapshin.multiplayground.db.DatabaseComponent
-import com.alapshin.multiplayground.jwt.TokenCreator
+import com.alapshin.multiplayground.jwt.JwtComponent
 import com.alapshin.multiplayground.user.model.UserRepository
 import com.alapshin.multiplayground.user.model.UserRepositoryImpl
 import com.alapshin.multiplayground.user.route.UserController
@@ -23,16 +23,12 @@ import me.tatarka.inject.annotations.Scope
 @Component
 @ApplicationScope
 abstract class ApplicationComponent(
+    @Component val jwtComponent: JwtComponent,
     @Component val configComponent: ConfigComponent,
     @Component val databaseComponent: DatabaseComponent,
 ) {
     abstract val routerManager: RouterManager
 
-    @Provides
-    @ApplicationScope
-    fun tokenCreator(): TokenCreator {
-        return TokenCreator()
-    }
 
     @Provides
     @ApplicationScope
