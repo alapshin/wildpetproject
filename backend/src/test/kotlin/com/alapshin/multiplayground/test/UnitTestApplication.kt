@@ -11,13 +11,6 @@ fun unitTestApplication(block: suspend ApplicationTestBuilder.() -> Unit) {
         environment {
             config = ApplicationConfig("application-test.yaml")
         }
-//        externalServices {
-//            hosts("http:/0.0.0.0:8080/.well-known/") {
-//                routing {
-//                    staticResources("/.well-known/", "well-known")
-//                }
-//            }
-//        }
         block()
     }
 }
