@@ -89,7 +89,7 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 
-kotlinter = "org.jmailen.kotlinter:3.15.0"
+ktlint = "org.jlleitschuh.gradle.ktlint :11.5.0"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
 gitversioning = "me.qoomon.git-versioning:6.4.2"

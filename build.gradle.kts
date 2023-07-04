@@ -2,12 +2,10 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jmailen.gradle.kotlinter.tasks.FormatTask
-import org.jmailen.gradle.kotlinter.tasks.LintTask
 
 plugins {
+    alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt)
-    alias(libs.plugins.kotlinter)
     alias(libs.plugins.gitversioning)
     alias(libs.plugins.versions.check)
     alias(libs.plugins.versions.update)
@@ -58,12 +56,9 @@ allprojects {
         }
     }
 
-    apply(plugin = rootProject.libs.plugins.kotlinter.get().pluginId)
-    tasks.withType<LintTask>().configureEach {
-        exclude { it.file.path.contains("generated/")}
-    }
-    tasks.withType<FormatTask>().configureEach {
-        exclude { it.file.path.contains("generated/")}
+    apply(plugin = rootProject.libs.plugins.ktlint.get().pluginId)
+    ktlint {
+        version.set(rootProject.libs.versions.ktlint.get())
     }
 }
 
