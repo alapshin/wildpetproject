@@ -1,20 +1,20 @@
 package com.alapshin.multiplayground
 
-import com.alapshin.multiplayground.auth.model.AuthRepository
-import com.alapshin.multiplayground.auth.model.AuthRepositoryImpl
-import com.alapshin.multiplayground.auth.route.AuthController
-import com.alapshin.multiplayground.auth.route.AuthControllerImpl
-import com.alapshin.multiplayground.auth.route.AuthRouter
+import com.alapshin.multiplayground.auth.data.AuthRepository
+import com.alapshin.multiplayground.auth.data.AuthRepositoryImpl
+import com.alapshin.multiplayground.auth.presentation.AuthController
+import com.alapshin.multiplayground.auth.service.AuthService
+import com.alapshin.multiplayground.auth.service.AuthServiceImpl
 import com.alapshin.multiplayground.config.ConfigComponent
-import com.alapshin.multiplayground.core.Router
-import com.alapshin.multiplayground.core.RouterManager
+import com.alapshin.multiplayground.core.Controller
+import com.alapshin.multiplayground.core.ControllerManager
 import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.jwt.JwtComponent
-import com.alapshin.multiplayground.user.model.UserRepository
-import com.alapshin.multiplayground.user.model.UserRepositoryImpl
-import com.alapshin.multiplayground.user.route.UserController
-import com.alapshin.multiplayground.user.route.UserControllerImpl
-import com.alapshin.multiplayground.user.route.UserRouter
+import com.alapshin.multiplayground.user.data.UserRepository
+import com.alapshin.multiplayground.user.data.UserRepositoryImpl
+import com.alapshin.multiplayground.user.service.UserService
+import com.alapshin.multiplayground.user.service.UserServiceImpl
+import com.alapshin.multiplayground.user.presentation.UserControler
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
@@ -27,33 +27,34 @@ abstract class ApplicationComponent(
     @Component val configComponent: ConfigComponent,
     @Component val databaseComponent: DatabaseComponent,
 ) {
-    abstract val routerManager: RouterManager
+    abstract val routerManager: ControllerManager
 
     @Provides
     @ApplicationScope
-    fun routerManager(routers: Set<Router>) = RouterManager(routers)
+    fun controllerManager(controllers: Set<Controller>) = ControllerManager(controllers)
+
+    @Provides
+    @ApplicationScope
+    fun authService(service: AuthServiceImpl): AuthService = service
 
     @IntoSet
     @Provides
     @ApplicationScope
-    fun authRouter(controller: AuthController): Router = AuthRouter(controller)
-
-    @Provides
-    @ApplicationScope
-    fun authController(controller: AuthControllerImpl): AuthController = controller
+    fun authController(controller: AuthController): Controller = controller
 
     @Provides
     @ApplicationScope
     fun authRepository(repository: AuthRepositoryImpl): AuthRepository = repository
 
-    @IntoSet
-    @Provides
-    @ApplicationScope
-    fun userRouter(controller: UserController): Router = UserRouter(controller)
 
     @Provides
     @ApplicationScope
-    fun userController(controller: UserControllerImpl): UserController = controller
+    fun userService(service: UserServiceImpl): UserService = service
+
+    @IntoSet
+    @Provides
+    @ApplicationScope
+    fun userController(controller: UserControler): Controller = controller
 
     @Provides
     @ApplicationScope

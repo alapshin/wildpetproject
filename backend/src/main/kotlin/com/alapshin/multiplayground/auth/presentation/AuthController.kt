@@ -1,7 +1,7 @@
-package com.alapshin.multiplayground.auth.route
+package com.alapshin.multiplayground.auth.presentation
 
-import com.alapshin.multiplayground.auth.model.Credentials
-import com.alapshin.multiplayground.core.Router
+import com.alapshin.multiplayground.auth.service.AuthService
+import com.alapshin.multiplayground.core.Controller
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
@@ -13,15 +13,15 @@ import io.ktor.server.routing.post
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-class AuthRouter(
-    private val controller: AuthController,
-) : Router {
+class AuthController(
+    private val service: AuthService,
+) : Controller {
     override fun setup(routing: Routing) {
         routing.apply {
             post("/auth/login/") {
                 with(call) {
                     val (username, password) = receive<Credentials>()
-                    val pair = controller.authenticate(
+                    val pair = service.authenticate(
                         username = username,
                         password = password,
                     )
@@ -37,7 +37,7 @@ class AuthRouter(
             post("/auth/register/") {
                 with(call) {
                     val credentials = receive<Credentials>()
-                    val user = controller.register(
+                    val user = service.register(
                         username = credentials.username,
                         password = credentials.password,
                     )

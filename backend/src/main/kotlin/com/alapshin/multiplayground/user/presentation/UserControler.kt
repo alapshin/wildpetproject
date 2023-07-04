@@ -1,7 +1,8 @@
-package com.alapshin.multiplayground.user.route
+package com.alapshin.multiplayground.user.presentation
 
 import com.alapshin.multiplayground.config.Constants
-import com.alapshin.multiplayground.core.Router
+import com.alapshin.multiplayground.core.Controller
+import com.alapshin.multiplayground.user.service.UserService
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
 import io.ktor.server.auth.authenticate
@@ -12,16 +13,16 @@ import io.ktor.server.util.getOrFail
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-class UserRouter constructor(
-    private val controller: UserController,
-) : Router {
+class UserControler constructor(
+    private val service: UserService,
+) : Controller {
     override fun setup(routing: Routing) {
         routing.apply {
             authenticate(Constants.JWT_AUTH_NAME) {
                 get("/users/{userId}/") {
                     with(call) {
                         val userId = parameters.getOrFail<Long>("userId")
-                        val user = controller.getUser(userId)
+                        val user = service.getUser(userId)
                         if (user != null) {
                             respond(HttpStatusCode.OK, user)
                         } else {

@@ -1,6 +1,6 @@
-package com.alapshin.multiplayground.auth.model
+package com.alapshin.multiplayground.auth.data
 
-import com.alapshin.multiplayground.user.model.User
+import com.alapshin.multiplayground.user.data.User
 
 interface AuthRepository {
     fun loginUser(username: String, password: String): User?

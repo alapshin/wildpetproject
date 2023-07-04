@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.auth.model
+package com.alapshin.multiplayground.auth.presentation
 
 import kotlinx.serialization.Serializable
 

@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.user.model
+package com.alapshin.multiplayground.user.data
 
 import kotlinx.serialization.Serializable
 

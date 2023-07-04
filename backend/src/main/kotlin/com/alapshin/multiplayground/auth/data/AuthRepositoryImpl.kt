@@ -1,8 +1,8 @@
-package com.alapshin.multiplayground.auth.model
+package com.alapshin.multiplayground.auth.data
 
 import com.alapshin.multiplayground.db.Database
 import com.alapshin.multiplayground.db.runGettingLastId
-import com.alapshin.multiplayground.user.model.User
+import com.alapshin.multiplayground.user.data.User
 import me.tatarka.inject.annotations.Inject
 
 @Inject

@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.user.model
+package com.alapshin.multiplayground.user.data
 
 interface UserRepository {
     fun getUser(userId: Long): User?

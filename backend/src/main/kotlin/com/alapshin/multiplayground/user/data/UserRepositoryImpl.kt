@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.user.model
+package com.alapshin.multiplayground.user.data
 
 import com.alapshin.multiplayground.db.Database
 import me.tatarka.inject.annotations.Inject

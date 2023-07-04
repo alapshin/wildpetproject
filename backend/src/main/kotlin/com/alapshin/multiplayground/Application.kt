@@ -3,7 +3,7 @@ package com.alapshin.multiplayground
 import com.alapshin.multiplayground.config.ConfigComponent
 import com.alapshin.multiplayground.config.Constants
 import com.alapshin.multiplayground.config.create
-import com.alapshin.multiplayground.core.RouterManager
+import com.alapshin.multiplayground.core.ControllerManager
 import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.db.create
 import com.alapshin.multiplayground.jwt.JwtComponent
@@ -24,7 +24,7 @@ import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
 
 lateinit var jwtVerifier: JWTVerifier
-lateinit var routerManager: RouterManager
+lateinit var routerManager: ControllerManager
 
 fun main(args: Array<String>): Unit = EngineMain.main(args)
 

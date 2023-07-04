@@ -1,9 +1,9 @@
 package com.alapshin.multiplayground.user
 
-import com.alapshin.multiplayground.auth.model.Credentials
+import com.alapshin.multiplayground.auth.presentation.Credentials
 import com.alapshin.multiplayground.test.createDefaultClient
 import com.alapshin.multiplayground.test.unitTestApplication
-import com.alapshin.multiplayground.user.model.User
+import com.alapshin.multiplayground.user.data.User
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.header
