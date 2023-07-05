@@ -21,13 +21,12 @@ sqldelight {
 
 dependencies {
     implementation(libs.logback)
-
+    ksp(libs.kotlininject.ksp)
+    implementation(libs.kotlininject.runtime)
+    implementation(libs.password4j)
     implementation(libs.sqldelight.driver.jvm)
 
     implementation(libs.bundles.ktor.server)
-
-    ksp(libs.kotlininject.ksp)
-    implementation(libs.kotlininject.runtime)
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.ktor.server.test)

@@ -1,19 +1,21 @@
 CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     username TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    salt TEXT NOT NULL
 );
 
 insert:
-INSERT INTO users(username, password)
-VALUES (:username, :password);
+INSERT INTO users(username, password, salt)
+VALUES (:username, :password, :salt);
 
-select:
-SELECT user_id, username
-FROM users
-WHERE username = :username AND password = :password;
-
-selectUserById:
+selectUserByUserId:
 SELECT user_id, username
 FROM users
 WHERE user_id = :user_id;
+
+selectUserByUsername:
+SELECT user_id, username, password, salt
+FROM users
+WHERE username = :username;
+

@@ -9,18 +9,17 @@ import me.tatarka.inject.annotations.Inject
 class AuthServiceImpl constructor(
     private val jwtCreator: JwtCreator,
     private val repository: AuthRepository,
-): AuthService {
+) : AuthService {
     override fun register(username: String, password: String): User {
         return repository.registerUser(username, password)
     }
 
     override fun authenticate(username: String, password: String): Pair<User, String>? {
-        val user = repository.loginUser(username, password)
+        val user = repository.authenticateUser(username, password)
         return if (user == null) {
             null
         } else {
             Pair(user, jwtCreator.create(user.username))
         }
     }
-
 }

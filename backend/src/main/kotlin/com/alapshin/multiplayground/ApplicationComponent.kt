@@ -12,9 +12,9 @@ import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.jwt.JwtComponent
 import com.alapshin.multiplayground.user.data.UserRepository
 import com.alapshin.multiplayground.user.data.UserRepositoryImpl
+import com.alapshin.multiplayground.user.presentation.UserControler
 import com.alapshin.multiplayground.user.service.UserService
 import com.alapshin.multiplayground.user.service.UserServiceImpl
-import com.alapshin.multiplayground.user.presentation.UserControler
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
@@ -45,7 +45,6 @@ abstract class ApplicationComponent(
     @Provides
     @ApplicationScope
     fun authRepository(repository: AuthRepositoryImpl): AuthRepository = repository
-
 
     @Provides
     @ApplicationScope

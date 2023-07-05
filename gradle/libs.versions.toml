@@ -47,6 +47,7 @@ ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", 
 logback = "ch.qos.logback:logback-classic:1.4.8"
 markdown = "org.jetbrains:markdown:0.4.1"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
+password4j = "com.password4j:password4j:1.7.1"
 sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 
 [bundles]
