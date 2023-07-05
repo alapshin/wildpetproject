@@ -14,6 +14,10 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+compose {
+    kotlinCompilerPlugin.set(libs.androidx.compose.compiler.get().toString())
+}
+
 kotlin {
     android()
     jvm("desktop")
@@ -92,7 +96,7 @@ android {
 buildkonfig {
     packageName = "com.alapshin.multiplayground"
     defaultConfigs {
-        buildConfigField(Type.STRING, "API_URL", "https://reqres.in/api/", const = true)
+        buildConfigField(Type.STRING, "API_URL", "http://192.168.2.107:8080/", const = true)
     }
 }
 
