@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.login.domain
+package com.alapshin.multiplayground.registration.domain
 
 import androidx.compose.runtime.Composable
 import com.alapshin.multiplayground.base.Bloc
@@ -10,22 +10,18 @@ import kotlinx.coroutines.flow.Flow
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-class LoginBloc(
-    private val presenter: LoginPresenter,
+class RegistrationBloc(
+    private val presenter: RegistrationPresenter,
     private val navigation: StackNavigation<Config>,
     private val componentContext: ComponentContext,
-) : Bloc<LoginMvi.Event, LoginMvi.State>(componentContext) {
+) : Bloc<RegistrationMvi.Event, RegistrationMvi.State>(componentContext) {
 
     fun navigateToMain() {
         navigation.push(Config.UserList)
     }
 
-    fun navigateToRegistration() {
-        navigation.push(Config.Registration)
-    }
-
     @Composable
-    override fun state(events: Flow<LoginMvi.Event>): LoginMvi.State {
+    override fun state(events: Flow<RegistrationMvi.Event>): RegistrationMvi.State {
         return presenter.state(events)
     }
 }

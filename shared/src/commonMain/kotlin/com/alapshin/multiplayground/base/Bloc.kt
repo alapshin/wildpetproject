@@ -1,4 +1,4 @@
-package com.alapshin.multiplayground.compound
+package com.alapshin.multiplayground.base
 
 import androidx.compose.runtime.Composable
 import app.cash.molecule.RecompositionClock

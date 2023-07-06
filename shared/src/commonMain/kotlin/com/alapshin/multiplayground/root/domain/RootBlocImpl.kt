@@ -1,6 +1,7 @@
 package com.alapshin.multiplayground.root.domain
 
 import com.alapshin.multiplayground.login.domain.LoginBloc
+import com.alapshin.multiplayground.registration.domain.RegistrationBloc
 import com.alapshin.multiplayground.users.domain.UserListBloc
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
@@ -28,6 +29,7 @@ class RootBlocImpl(
         val blocFactory = checkNotNull(blocFactoryMap[config])
         return when (config) {
             Config.Login -> Child.Login(blocFactory.invoke(componentContext) as LoginBloc)
+            Config.Registration -> Child.Registration(blocFactory.invoke(componentContext) as RegistrationBloc)
             Config.UserList -> Child.UserList(blocFactory.invoke(componentContext) as UserListBloc)
         }
     }

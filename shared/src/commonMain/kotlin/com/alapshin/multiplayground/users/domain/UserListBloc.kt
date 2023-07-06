@@ -1,7 +1,7 @@
 package com.alapshin.multiplayground.users.domain
 
 import androidx.compose.runtime.Composable
-import com.alapshin.multiplayground.compound.Bloc
+import com.alapshin.multiplayground.base.Bloc
 import com.alapshin.multiplayground.root.domain.Config
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.StackNavigation
