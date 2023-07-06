@@ -14,15 +14,15 @@ import me.tatarka.inject.annotations.Provides
 import me.tatarka.inject.annotations.Scope
 
 @Component
-@DecomposeScope
-abstract class DescomposeComponent(
+@RootScope
+abstract class RootComponent(
     private val componentContext: ComponentContext,
     @Component val applicationComponent: ApplicationComponent,
 ) : LoginComponent, RegistrationComponent, UserComponent {
     abstract val rootBloc: RootBloc
 
     @Provides
-    @DecomposeScope
+    @RootScope
     fun navigation(): StackNavigation<Config> {
         return StackNavigation()
     }
@@ -36,4 +36,4 @@ abstract class DescomposeComponent(
 
 @Scope
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER)
-private annotation class DecomposeScope
+private annotation class RootScope

@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import com.alapshin.multiplayground.di.ApplicationComponent
 import com.alapshin.multiplayground.di.PlatformComponent
 import com.alapshin.multiplayground.di.create
-import com.alapshin.multiplayground.root.di.DescomposeComponent
+import com.alapshin.multiplayground.root.di.RootComponent
 import com.alapshin.multiplayground.root.di.create
 import com.alapshin.multiplayground.root.view.RootScreen
 import com.alapshin.multiplayground.theme.AppTheme
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         val applicationComponent = ApplicationComponent::class.create(
             platformComponent = platformComponent
         )
-        val decomposeComponent = DescomposeComponent::class.create(
+        val decomposeComponent = RootComponent::class.create(
             componentContext = defaultComponentContext(),
             applicationComponent = applicationComponent,
         )
