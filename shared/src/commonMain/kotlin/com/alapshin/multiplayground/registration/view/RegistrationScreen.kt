@@ -21,8 +21,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import com.alapshin.multiplayground.login.domain.LoginBloc
-import com.alapshin.multiplayground.login.domain.LoginMvi
 import com.alapshin.multiplayground.registration.domain.RegistrationBloc
 import com.alapshin.multiplayground.theme.Defaults
 
@@ -43,26 +41,26 @@ fun RegistrationScreen(bloc: RegistrationBloc) {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .padding(Defaults.ContentPadding)
+            .padding(Defaults.ContentPadding),
     ) {
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
             visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         Button(
             onClick = {
             },
             contentPadding = ButtonDefaults.ContentPadding,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Login")
         }
@@ -72,7 +70,7 @@ fun RegistrationScreen(bloc: RegistrationBloc) {
                 bloc.navigateToMain()
             },
             contentPadding = ButtonDefaults.ContentPadding,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Register ${state.value}")
         }

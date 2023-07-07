@@ -1,7 +1,5 @@
-package com.alapshin.multiplayground.login.di
+package com.alapshin.multiplayground.registration.di
 
-import com.alapshin.multiplayground.login.domain.LoginBloc
-import com.alapshin.multiplayground.login.domain.LoginPresenter
 import com.alapshin.multiplayground.registration.domain.RegistrationBloc
 import com.alapshin.multiplayground.registration.domain.RegistrationPresenter
 import com.alapshin.multiplayground.registration.domain.RegistrationPresenterImpl
@@ -17,7 +15,7 @@ import me.tatarka.inject.annotations.Provides
 interface RegistrationComponent {
     @Provides
     fun provideRegistrationPresenter(
-        presenter: RegistrationPresenterImpl
+        presenter: RegistrationPresenterImpl,
     ): RegistrationPresenter = presenter
 
     @IntoMap
@@ -30,7 +28,7 @@ interface RegistrationComponent {
             RegistrationBloc(
                 presenter = presenter,
                 navigation = navigation,
-                componentContext = componentContext
+                componentContext = componentContext,
             )
         }
     }

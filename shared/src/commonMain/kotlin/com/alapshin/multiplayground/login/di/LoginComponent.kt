@@ -1,8 +1,8 @@
 package com.alapshin.multiplayground.login.di
 
+import com.alapshin.multiplayground.auth.AuthService
 import com.alapshin.multiplayground.login.data.LoginManager
 import com.alapshin.multiplayground.login.data.LoginManagerImpl
-import com.alapshin.multiplayground.auth.AuthService
 import com.alapshin.multiplayground.login.domain.LoginBloc
 import com.alapshin.multiplayground.login.domain.LoginPresenter
 import com.alapshin.multiplayground.login.domain.LoginPresenterImpl
@@ -36,7 +36,7 @@ interface LoginComponent {
             LoginBloc(
                 presenter = presenter,
                 navigation = navigation,
-                componentContext = componentContext
+                componentContext = componentContext,
             )
         }
     }

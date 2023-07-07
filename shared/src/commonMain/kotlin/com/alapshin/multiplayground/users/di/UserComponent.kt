@@ -35,8 +35,7 @@ interface UserComponent {
         return Config.UserList to { componentContext: ComponentContext ->
             UserListBloc(
                 presenter = presenter,
-                navigation = navigation,
-                componentContext = componentContext
+                componentContext = componentContext,
             )
         }
     }

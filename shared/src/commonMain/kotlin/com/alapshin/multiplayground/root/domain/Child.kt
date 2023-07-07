@@ -6,6 +6,6 @@ import com.alapshin.multiplayground.users.domain.UserListBloc
 
 sealed interface Child {
     class Login(val bloc: LoginBloc) : Child
-    class Registration(val bloc: RegistrationBloc): Child
+    class Registration(val bloc: RegistrationBloc) : Child
     class UserList(val bloc: UserListBloc) : Child
 }

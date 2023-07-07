@@ -16,7 +16,7 @@ import me.tatarka.inject.annotations.Inject
 @Inject
 class UserListPresenterImpl(
     private val loginManager: LoginManager,
-    private val dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider,
 ) : UserListPresenter {
     @Composable
     override fun state(events: Flow<UserListMvi.Event>): UserListMvi.State {

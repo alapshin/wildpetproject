@@ -42,19 +42,19 @@ fun LoginScreen(bloc: LoginBloc) {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .padding(Defaults.ContentPadding)
+            .padding(Defaults.ContentPadding),
     ) {
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
             visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         Button(
@@ -62,7 +62,7 @@ fun LoginScreen(bloc: LoginBloc) {
                 bloc.accept(LoginMvi.Event.Login(email, password))
             },
             contentPadding = ButtonDefaults.ContentPadding,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Login")
         }
@@ -72,7 +72,7 @@ fun LoginScreen(bloc: LoginBloc) {
                 bloc.navigateToMain()
             },
             contentPadding = ButtonDefaults.ContentPadding,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Register ${state.value}")
         }

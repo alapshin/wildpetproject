@@ -6,7 +6,7 @@ class UserListMvi private constructor() {
     data class State(
         val error: Error? = null,
         val progress: Boolean = false,
-        val users: List<User>? = null
+        val users: List<User>? = null,
     )
 
     sealed interface Error

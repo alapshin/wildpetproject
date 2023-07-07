@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
         val platformComponent = PlatformComponent::class.create(this)
         val applicationComponent = ApplicationComponent::class.create(
-            platformComponent = platformComponent
+            platformComponent = platformComponent,
         )
         val decomposeComponent = RootComponent::class.create(
             componentContext = defaultComponentContext(),

@@ -5,7 +5,7 @@ class LoginMvi private constructor() {
         val value: Int = 0,
         val error: Error? = null,
         val progress: Boolean = false,
-        val success: Boolean? = null
+        val success: Boolean? = null,
     )
 
     sealed interface Error

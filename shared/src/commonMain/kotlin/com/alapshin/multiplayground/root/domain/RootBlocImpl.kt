@@ -14,7 +14,7 @@ import me.tatarka.inject.annotations.Inject
 class RootBlocImpl(
     private val navigation: StackNavigation<Config>,
     private val componentContext: ComponentContext,
-    private val blocFactoryMap: Map<Config, BlocFactory>
+    private val blocFactoryMap: Map<Config, BlocFactory>,
 ) : RootBloc, ComponentContext by componentContext {
 
     private val _stack = childStack(
@@ -28,9 +28,9 @@ class RootBlocImpl(
     private fun child(config: Config, componentContext: ComponentContext): Child {
         val blocFactory = checkNotNull(blocFactoryMap[config])
         return when (config) {
-            Config.Login -> Child.Login(blocFactory.invoke(componentContext) as LoginBloc)
-            Config.Registration -> Child.Registration(blocFactory.invoke(componentContext) as RegistrationBloc)
-            Config.UserList -> Child.UserList(blocFactory.invoke(componentContext) as UserListBloc)
+            Config.Login -> Child.Login(blocFactory(componentContext) as LoginBloc)
+            Config.Registration -> Child.Registration(blocFactory(componentContext) as RegistrationBloc)
+            Config.UserList -> Child.UserList(blocFactory(componentContext) as UserListBloc)
         }
     }
 }

@@ -2,7 +2,7 @@ package com.alapshin.multiplayground.root.di
 
 import com.alapshin.multiplayground.di.ApplicationComponent
 import com.alapshin.multiplayground.login.di.LoginComponent
-import com.alapshin.multiplayground.login.di.RegistrationComponent
+import com.alapshin.multiplayground.registration.di.RegistrationComponent
 import com.alapshin.multiplayground.root.domain.Config
 import com.alapshin.multiplayground.root.domain.RootBloc
 import com.alapshin.multiplayground.root.domain.RootBlocImpl

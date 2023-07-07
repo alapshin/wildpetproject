@@ -18,11 +18,11 @@ fun UserListScreen(bloc: UserListBloc) {
     state.users?.let { users ->
         LazyColumn(
             modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             items(
                 users,
-                key = { user -> user.id }
+                key = { user -> user.id },
             ) { user ->
                 UserItemView(user)
             }

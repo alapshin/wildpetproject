@@ -19,7 +19,7 @@ fun UserItemView(user: User) {
         KamelImage(
             resource = lazyPainterResource(data = avatarUrl),
             contentDescription = "",
-            modifier = Modifier.size(72.dp)
+            modifier = Modifier.size(72.dp),
         )
         Spacer(modifier = Modifier.size(4.dp))
         Text("${user.firstName} ${user.lastName}")
