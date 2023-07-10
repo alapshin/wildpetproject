@@ -24,6 +24,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import com.alapshin.multiplayground.login.domain.LoginBloc
 import com.alapshin.multiplayground.login.domain.LoginMvi
 import com.alapshin.multiplayground.theme.Defaults
+import dev.icerock.moko.resources.compose.stringResource
+import com.alapshin.multiplayground.MR
 
 @Composable
 fun LoginScreen(bloc: LoginBloc) {
@@ -64,17 +66,17 @@ fun LoginScreen(bloc: LoginBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("Login")
+            Text(stringResource(MR.strings.login))
         }
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         FilledTonalButton(
             onClick = {
-                bloc.navigateToMain()
+                bloc.navigateToRegistration()
             },
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("Register ${state.value}")
+            Text(stringResource(MR.strings.register))
         }
     }
 }

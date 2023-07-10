@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.molecule)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.mokoresources)
 
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
@@ -42,6 +43,9 @@ kotlin {
                 // Needed only for preview.
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
+
+                api(libs.mokoresources)
+                api(libs.mokoresources.compose)
 
                 implementation(libs.kamel)
                 implementation(libs.decompose.core)
@@ -98,6 +102,10 @@ buildkonfig {
     defaultConfigs {
         buildConfigField(Type.STRING, "API_URL", "http://192.168.2.107:8080/", const = true)
     }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "com.alapshin.multiplayground"
 }
 
 dependencies {

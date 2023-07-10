@@ -2,7 +2,6 @@ package com.alapshin.multiplayground.login.domain
 
 class LoginMvi private constructor() {
     data class State(
-        val value: Int = 0,
         val error: Error? = null,
         val progress: Boolean = false,
         val success: Boolean? = null,

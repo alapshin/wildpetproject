@@ -11,8 +11,8 @@ datetime = "0.4.0"
 decompose = "2.0.0-beta-01"
 essenty = "1.1.0"
 detekt = "1.23.0"
-jjwt = "0.11.5"
 molecule = "0.11.0"
+mokoresources = "0.23.0"
 serialization = "1.5.1"
 sqldelight = "2.0.0-rc02"
 compose-multiplatform = "1.4.1"
@@ -48,6 +48,8 @@ ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", 
 logback = "ch.qos.logback:logback-classic:1.4.8"
 markdown = "org.jetbrains:markdown:0.4.1"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
+mokoresources = { module = "dev.icerock.moko:resources", version.ref = "mokoresources" }
+mokoresources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoresources" }
 password4j = "com.password4j:password4j:1.7.1"
 sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 
@@ -90,6 +92,7 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+mokoresources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoresources" }
 
 ktlint = "org.jlleitschuh.gradle.ktlint :11.5.0"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

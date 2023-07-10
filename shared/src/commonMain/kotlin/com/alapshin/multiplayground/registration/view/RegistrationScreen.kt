@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import com.alapshin.multiplayground.registration.domain.RegistrationBloc
 import com.alapshin.multiplayground.theme.Defaults
+import com.alapshin.multiplayground.MR
+import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
 fun RegistrationScreen(bloc: RegistrationBloc) {
@@ -62,17 +63,7 @@ fun RegistrationScreen(bloc: RegistrationBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("Login")
-        }
-        Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
-        FilledTonalButton(
-            onClick = {
-                bloc.navigateToMain()
-            },
-            contentPadding = ButtonDefaults.ContentPadding,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Text("Register ${state.value}")
+            Text(stringResource(MR.strings.register))
         }
     }
 }
