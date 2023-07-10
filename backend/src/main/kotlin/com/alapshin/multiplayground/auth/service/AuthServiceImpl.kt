@@ -10,11 +10,11 @@ class AuthServiceImpl constructor(
     private val jwtCreator: JwtCreator,
     private val repository: AuthRepository,
 ) : AuthService {
-    override fun register(username: String, password: String): User {
+    override fun registerUser(username: String, password: String): User? {
         return repository.registerUser(username, password)
     }
 
-    override fun authenticate(username: String, password: String): Pair<User, String>? {
+    override fun authenticateUser(username: String, password: String): Pair<User, String>? {
         val user = repository.authenticateUser(username, password)
         return if (user == null) {
             null

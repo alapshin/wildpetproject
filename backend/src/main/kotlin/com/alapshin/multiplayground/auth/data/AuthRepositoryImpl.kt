@@ -5,21 +5,26 @@ import com.alapshin.multiplayground.db.runGettingLastId
 import com.alapshin.multiplayground.user.data.User
 import com.password4j.Password
 import me.tatarka.inject.annotations.Inject
+import java.sql.SQLException
 
 @Inject
 class AuthRepositoryImpl constructor(private val database: Database) : AuthRepository {
-    override fun registerUser(username: String, password: String): User {
+    override fun registerUser(username: String, password: String): User? {
         val hash = Password.hash(password)
             .addRandomSalt()
             .withArgon2()
         val salt = hash.salt
         val hashedPassword = hash.result
-        val userId = database.runGettingLastId {
-            database.usersQueries.insert(username, hashedPassword, salt)
+        return try {
+            val userId = database.runGettingLastId {
+                database.usersQueries.insert(username, hashedPassword, salt)
+            }
+            database.usersQueries.selectUserByUserId(userId) { userId, username ->
+                User(userId, username)
+            }.executeAsOne()
+        } catch (exception: SQLException) {
+            null
         }
-        return database.usersQueries.selectUserByUserId(userId) { userId, username ->
-            User(userId, username)
-        }.executeAsOne()
     }
 
     override fun authenticateUser(username: String, password: String): User? {

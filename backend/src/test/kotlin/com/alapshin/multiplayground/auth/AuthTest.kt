@@ -13,7 +13,7 @@ import kotlin.test.assertTrue
 
 class AuthTest {
     @Test
-    fun testLogin() = unitTestApplication {
+    fun `Should allow to login with existing user`() = unitTestApplication {
         val client = createDefaultClient()
         client.post("/auth/register/") {
             setBody(Credentials(username = "john", password = "12345678"))
@@ -26,11 +26,23 @@ class AuthTest {
     }
 
     @Test
-    fun testRegister() = unitTestApplication {
+    fun `Should allow to register new user`() = unitTestApplication {
         val client = createDefaultClient()
         val response = client.post("/auth/register/") {
             setBody(Credentials(username = "john", password = "12345678"))
         }
         assertEquals(HttpStatusCode.OK, response.status)
+    }
+
+    @Test
+    fun `Should not allow to register user if username already exists`() = unitTestApplication {
+        val client = createDefaultClient()
+        client.post("/auth/register/") {
+            setBody(Credentials(username = "john", password = "12345678"))
+        }
+        val response = client.post("/auth/register/") {
+            setBody(Credentials(username = "john", password = "12345678"))
+        }
+        assertEquals(HttpStatusCode.Conflict, response.status)
     }
 }

@@ -21,7 +21,7 @@ class AuthController(
             post("/auth/login/") {
                 with(call) {
                     val (username, password) = receive<Credentials>()
-                    val pair = service.authenticate(
+                    val pair = service.authenticateUser(
                         username = username,
                         password = password,
                     )
@@ -37,11 +37,15 @@ class AuthController(
             post("/auth/register/") {
                 with(call) {
                     val credentials = receive<Credentials>()
-                    val user = service.register(
+                    val user = service.registerUser(
                         username = credentials.username,
                         password = credentials.password,
                     )
-                    respond(HttpStatusCode.OK, user)
+                    if (user == null) {
+                        respond(HttpStatusCode.Conflict)
+                    } else {
+                        respond(HttpStatusCode.OK, user)
+                    }
                 }
             }
         }
