@@ -1,6 +1,7 @@
 package com.alapshin.multiplayground.root.di
 
 import com.alapshin.multiplayground.di.ApplicationComponent
+import com.alapshin.multiplayground.landing.di.LandingComponent
 import com.alapshin.multiplayground.login.di.LoginComponent
 import com.alapshin.multiplayground.registration.di.RegistrationComponent
 import com.alapshin.multiplayground.root.domain.Config
@@ -18,7 +19,7 @@ import me.tatarka.inject.annotations.Scope
 abstract class RootComponent(
     private val componentContext: ComponentContext,
     @Component val applicationComponent: ApplicationComponent,
-) : LoginComponent, RegistrationComponent, UserComponent {
+) : LandingComponent, LoginComponent, RegistrationComponent, UserComponent {
     abstract val rootBloc: RootBloc
 
     @Provides
