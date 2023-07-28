@@ -19,8 +19,6 @@ kotlin {
 }
 
 compose {
-    kotlinCompilerPlugin.set(libs.androidx.compose.compiler.get().toString())
-
     desktop {
         application {
             mainClass = "MainKt"

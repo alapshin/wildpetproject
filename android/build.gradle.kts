@@ -18,10 +18,6 @@ kotlin {
     }
 }
 
-compose {
-    kotlinCompilerPlugin.set(libs.androidx.compose.compiler.get().toString())
-}
-
 android {
     namespace = "com.alapshin.multiplayground.android"
     compileSdk = Versions.compileSdk

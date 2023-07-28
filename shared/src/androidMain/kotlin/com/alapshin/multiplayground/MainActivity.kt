@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         val applicationComponent = ApplicationComponent::class.create(
             platformComponent = platformComponent,
         )
-        val decomposeComponent = RootComponent::class.create(
+        val rootComponent = RootComponent::class.create(
             componentContext = defaultComponentContext(),
             applicationComponent = applicationComponent,
         )
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 CompositionLocalProvider(LocalKamelConfig provides kamelConfig) {
-                    RootScreen(bloc = decomposeComponent.rootBloc, modifier = Modifier.fillMaxSize())
+                    RootScreen(bloc = rootComponent.rootBloc, modifier = Modifier.fillMaxSize())
                 }
             }
         }

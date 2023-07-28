@@ -1,25 +1,25 @@
 [versions]
-agp = "8.1.0-rc01"
 kotlin = "1.8.22"
+agp = "8.1.0"
 kotlin-inject = "0.6.1"
 ksp = "1.8.20-1.0.11"
 ktor = "2.3.2"
 ktlint = "0.50.0"
-ktorfit = "1.4.2"
+ktorfit = "1.4.4"
 coroutines = "1.6.4"
 datetime = "0.4.0"
-decompose = "2.0.0-beta-01"
+decompose = "2.0.1"
 essenty = "1.1.0"
 detekt = "1.23.0"
 molecule = "0.11.0"
 mokoresources = "0.23.0"
 serialization = "1.5.1"
-sqldelight = "2.0.0-rc02"
-compose-multiplatform = "1.4.1"
+sqldelight = "2.0.0"
+compose-multiplatform = "1.4.3"
 
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
-androidx-compose-compiler = "androidx.compose.compiler:compiler:1.4.8"
+androidx-compose-compiler = "androidx.compose.compiler:compiler:1.5.1"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
@@ -82,7 +82,6 @@ ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
-
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -93,11 +92,9 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 mokoresources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoresources" }
-
 ktlint = "org.jlleitschuh.gradle.ktlint :11.5.0"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 buildkonfig = "com.codingfeline.buildkonfig:0.13.3"
 gitversioning = "me.qoomon.git-versioning:6.4.2"
 versions-check = "com.github.ben-manes.versions:0.47.0"
-versions-update = "nl.littlerobots.version-catalog-update:0.8.0"
-
+versions-update = "nl.littlerobots.version-catalog-update:0.8.1"

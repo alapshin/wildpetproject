@@ -15,10 +15,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
-compose {
-    kotlinCompilerPlugin.set(libs.androidx.compose.compiler.get().toString())
-}
-
 kotlin {
     android()
     jvm("desktop")
