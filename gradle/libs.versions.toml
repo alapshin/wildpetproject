@@ -1,25 +1,24 @@
 [versions]
-kotlin = "1.8.22"
+kotlin = "1.9.0"
 agp = "8.1.0"
 kotlin-inject = "0.6.1"
-ksp = "1.8.20-1.0.11"
-ktor = "2.3.2"
+ksp = "1.9.0-1.0.13"
+ktor = "2.3.3"
 ktlint = "0.50.0"
-ktorfit = "1.4.4"
+ktorfit = "1.5.0"
 coroutines = "1.6.4"
 datetime = "0.4.0"
 decompose = "2.0.1"
 essenty = "1.1.0"
-detekt = "1.23.0"
-molecule = "0.11.0"
 mokoresources = "0.23.0"
+detekt = "1.23.1"
+molecule = "1.2.0"
 serialization = "1.5.1"
 sqldelight = "2.0.0"
 compose-multiplatform = "1.4.3"
 
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.7.2"
-androidx-compose-compiler = "androidx.compose.compiler:compiler:1.5.1"
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
@@ -45,8 +44,8 @@ ktor-server-content = { module = "io.ktor:ktor-server-content-negotiation", vers
 ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
 ktor-server-test = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
-logback = "ch.qos.logback:logback-classic:1.4.8"
-markdown = "org.jetbrains:markdown:0.4.1"
+logback = "ch.qos.logback:logback-classic:1.4.11"
+markdown = "org.jetbrains:markdown:0.5.0"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 mokoresources = { module = "dev.icerock.moko:resources", version.ref = "mokoresources" }
 mokoresources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoresources" }

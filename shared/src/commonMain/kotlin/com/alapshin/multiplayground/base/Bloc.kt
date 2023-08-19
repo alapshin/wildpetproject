@@ -1,7 +1,7 @@
 package com.alapshin.multiplayground.base
 
 import androidx.compose.runtime.Composable
-import app.cash.molecule.RecompositionClock
+import app.cash.molecule.RecompositionMode
 import app.cash.molecule.launchMolecule
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.InstanceKeeper
@@ -22,7 +22,7 @@ abstract class Bloc<Event, State>(
     private val events = MutableSharedFlow<Event>(extraBufferCapacity = 16)
 
     val state: StateFlow<State> by lazy(LazyThreadSafetyMode.NONE) {
-        scope.launchMolecule(clock = RecompositionClock.Immediate) {
+        scope.launchMolecule(mode = RecompositionMode.Immediate) {
             state(events)
         }
     }

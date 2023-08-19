@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.ksp)
 
     alias(libs.plugins.ktorfit)
-    alias(libs.plugins.molecule)
     alias(libs.plugins.buildkonfig)
     alias(libs.plugins.mokoresources)
 
