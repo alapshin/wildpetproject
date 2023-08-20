@@ -2,6 +2,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
     alias(libs.plugins.ktlint)
@@ -61,6 +62,16 @@ allprojects {
     apply(plugin = rootProject.libs.plugins.ktlint.get().pluginId)
     ktlint {
         version.set(rootProject.libs.versions.ktlint.get())
+        filter {
+            exclude {
+                it.file.relativeTo(projectDir)
+                    .startsWith(project.buildDir.relativeTo(projectDir))
+            }
+        }
+        reporters {
+            reporter(ReporterType.HTML)
+            reporter(ReporterType.PLAIN)
+        }
     }
 }
 
