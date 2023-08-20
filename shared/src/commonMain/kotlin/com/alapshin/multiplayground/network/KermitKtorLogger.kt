@@ -6,7 +6,7 @@ object KermitKtorLogger : Logger {
     private const val TAG = "HttpLogger"
 
     override fun log(message: String) {
-        co.touchlab.kermit.Logger.i(TAG) {
+        co.touchlab.kermit.Logger.i(tag = TAG) {
             message
         }
     }
