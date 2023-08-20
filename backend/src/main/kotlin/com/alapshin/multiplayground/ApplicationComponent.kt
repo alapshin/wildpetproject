@@ -12,7 +12,7 @@ import com.alapshin.multiplayground.db.DatabaseComponent
 import com.alapshin.multiplayground.jwt.JwtComponent
 import com.alapshin.multiplayground.user.data.UserRepository
 import com.alapshin.multiplayground.user.data.UserRepositoryImpl
-import com.alapshin.multiplayground.user.presentation.UserControler
+import com.alapshin.multiplayground.user.presentation.UserController
 import com.alapshin.multiplayground.user.service.UserService
 import com.alapshin.multiplayground.user.service.UserServiceImpl
 import me.tatarka.inject.annotations.Component
@@ -53,7 +53,7 @@ abstract class ApplicationComponent(
     @IntoSet
     @Provides
     @ApplicationScope
-    fun userController(controller: UserControler): Controller = controller
+    fun userController(controller: UserController): Controller = controller
 
     @Provides
     @ApplicationScope

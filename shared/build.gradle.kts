@@ -106,7 +106,6 @@ dependencies {
     add("kspDesktop", libs.kotlininject.ksp)
     add("kspDesktop", libs.lyricist.processor)
 
-
     add("kspCommonMainMetadata", libs.ktorfit.ksp)
     add("kspCommonMainMetadata", libs.kotlininject.ksp)
     add("kspCommonMainMetadata", libs.lyricist.processor)

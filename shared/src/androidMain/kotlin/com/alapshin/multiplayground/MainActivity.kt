@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import cafe.adriel.lyricist.ProvideStrings
-import cafe.adriel.lyricist.rememberStrings
 import com.alapshin.multiplayground.di.ApplicationComponent
 import com.alapshin.multiplayground.di.PlatformComponent
 import com.alapshin.multiplayground.di.create

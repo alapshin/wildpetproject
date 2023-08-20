@@ -13,9 +13,10 @@ import io.ktor.server.util.getOrFail
 import me.tatarka.inject.annotations.Inject
 
 @Inject
-class UserControler constructor(
+class UserController constructor(
     private val service: UserService,
 ) : Controller {
+    @Suppress("UnnecessaryApply")
     override fun setup(routing: Routing) {
         routing.apply {
             authenticate(Constants.JWT_AUTH_NAME) {

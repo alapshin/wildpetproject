@@ -9,6 +9,7 @@ import java.sql.SQLException
 
 @Inject
 class AuthRepositoryImpl constructor(private val database: Database) : AuthRepository {
+    @Suppress("SwallowedException")
     override fun registerUser(username: String, password: String): User? {
         val hash = Password.hash(password)
             .addRandomSalt()
@@ -19,8 +20,8 @@ class AuthRepositoryImpl constructor(private val database: Database) : AuthRepos
             val userId = database.runGettingLastId {
                 database.usersQueries.insert(username, hashedPassword, salt)
             }
-            database.usersQueries.selectUserByUserId(userId) { userId, username ->
-                User(userId, username)
+            database.usersQueries.selectUserByUserId(userId) { id, name ->
+                User(id, name)
             }.executeAsOne()
         } catch (exception: SQLException) {
             null

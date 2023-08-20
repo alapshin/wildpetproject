@@ -39,7 +39,7 @@ fun Application.module() {
 @Suppress("UnusedPrivateProperty")
 private fun Application.diModule() {
     val config = environment.config
-    val filename = config.propertyOrNull("database.filename")?.getString() ?: ""
+    val filename = config.propertyOrNull("database.filename")?.getString().orEmpty()
     val configComponent = ConfigComponent::class.create(environment.config)
     val jwtComponent = JwtComponent::class.create(configComponent)
     val databaseComponent = DatabaseComponent::class.create(filename)

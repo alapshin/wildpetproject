@@ -6,6 +6,7 @@ import me.tatarka.inject.annotations.Scope
 
 @Component
 @DatabaseScope
+@Suppress("UnnecessaryAbstractClass")
 abstract class DatabaseComponent(private val filename: String) {
     @Provides
     @DatabaseScope

@@ -8,10 +8,10 @@ class UserRepositoryImpl constructor(
     private val database: Database,
 ) : UserRepository {
     override fun getUser(userId: Long): User? {
-        return database.usersQueries.selectUserByUserId(userId) { userId, username ->
+        return database.usersQueries.selectUserByUserId(userId) { id, name ->
             User(
-                userId = userId,
-                username = username,
+                userId = id,
+                username = name,
             )
         }.executeAsOneOrNull()
     }
