@@ -13,6 +13,8 @@ plugins {
     alias(libs.plugins.ksp).apply(false)
     alias(libs.plugins.ktorfit).apply(false)
     alias(libs.plugins.buildkonfig).apply(false)
+
+    alias(libs.plugins.gradle.cacheFix).apply(false)
     alias(libs.plugins.android.library).apply(false)
     alias(libs.plugins.android.application).apply(false)
     alias(libs.plugins.kotlin.jvm).apply(false)

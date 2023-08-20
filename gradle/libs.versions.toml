@@ -83,6 +83,7 @@ ktorfit = "de.jensklingenberg.ktorfit:1.0.0"
 molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+gradle-cacheFix = { id = "org.gradle.android.cache-fix", version = "2.7.3" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

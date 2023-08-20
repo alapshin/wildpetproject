@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.buildkonfig)
 
+    alias(libs.plugins.gradle.cacheFix)
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
