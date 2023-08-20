@@ -8,7 +8,7 @@ plugins {
 
 @Suppress("UnusedPrivateProperty")
 kotlin {
-    android()
+    androidTarget()
     sourceSets {
         val androidMain by getting {
             dependencies {

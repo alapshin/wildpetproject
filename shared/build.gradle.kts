@@ -15,8 +15,8 @@ plugins {
 }
 
 kotlin {
-    android()
     jvm("desktop")
+    androidTarget()
 
     @Suppress("UnusedPrivateMember")
     sourceSets {
