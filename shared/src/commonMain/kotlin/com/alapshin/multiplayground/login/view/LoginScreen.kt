@@ -21,11 +21,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import cafe.adriel.lyricist.LocalStrings
 import com.alapshin.multiplayground.login.domain.LoginBloc
 import com.alapshin.multiplayground.login.domain.LoginMvi
 import com.alapshin.multiplayground.theme.Defaults
-import dev.icerock.moko.resources.compose.stringResource
-import com.alapshin.multiplayground.MR
 
 @Composable
 fun LoginScreen(bloc: LoginBloc) {
@@ -66,7 +65,7 @@ fun LoginScreen(bloc: LoginBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(stringResource(MR.strings.login))
+            Text(LocalStrings.current.login)
         }
     }
 }

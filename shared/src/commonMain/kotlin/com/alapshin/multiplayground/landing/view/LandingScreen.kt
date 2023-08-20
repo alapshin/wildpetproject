@@ -18,9 +18,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import cafe.adriel.lyricist.LocalStrings
 import com.alapshin.multiplayground.theme.Defaults
-import dev.icerock.moko.resources.compose.stringResource
-import com.alapshin.multiplayground.MR
 import com.alapshin.multiplayground.landing.domain.LandingBloc
 
 @Composable
@@ -43,7 +42,7 @@ fun LandingScreen(bloc: LandingBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(stringResource(MR.strings.login))
+            Text(LocalStrings.current.login)
         }
         Spacer(modifier = Modifier.size(Defaults.ContentVerticalSpacing))
         FilledTonalButton(
@@ -53,7 +52,7 @@ fun LandingScreen(bloc: LandingBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(stringResource(MR.strings.register))
+            Text(LocalStrings.current.register)
         }
     }
 }

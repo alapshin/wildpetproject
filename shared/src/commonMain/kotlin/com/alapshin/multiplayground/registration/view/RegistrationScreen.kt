@@ -20,10 +20,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import cafe.adriel.lyricist.LocalStrings
 import com.alapshin.multiplayground.registration.domain.RegistrationBloc
 import com.alapshin.multiplayground.theme.Defaults
-import com.alapshin.multiplayground.MR
-import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
 fun RegistrationScreen(bloc: RegistrationBloc) {
@@ -63,7 +62,7 @@ fun RegistrationScreen(bloc: RegistrationBloc) {
             contentPadding = ButtonDefaults.ContentPadding,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(stringResource(MR.strings.register))
+            Text(LocalStrings.current.register)
         }
     }
 }

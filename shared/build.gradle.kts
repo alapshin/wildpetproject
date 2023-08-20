@@ -5,7 +5,6 @@ plugins {
 
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.buildkonfig)
-    alias(libs.plugins.mokoresources)
 
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.compose)
@@ -39,10 +38,8 @@ kotlin {
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
 
-                api(libs.mokoresources)
-                api(libs.mokoresources.compose)
-
                 implementation(libs.kamel)
+                implementation(libs.lyricist)
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
                 implementation(libs.essenty.parcelable)
@@ -99,16 +96,17 @@ buildkonfig {
     }
 }
 
-multiplatformResources {
-    multiplatformResourcesPackage = "com.alapshin.multiplayground"
-}
-
 dependencies {
-    add("kspDesktop", libs.ktorfit.ksp)
     add("kspAndroid", libs.ktorfit.ksp)
-    add("kspCommonMainMetadata", libs.ktorfit.ksp)
-
-    add("kspDesktop", libs.kotlininject.ksp)
     add("kspAndroid", libs.kotlininject.ksp)
+    add("kspAndroid", libs.lyricist.processor)
+
+    add("kspDesktop", libs.ktorfit.ksp)
+    add("kspDesktop", libs.kotlininject.ksp)
+    add("kspDesktop", libs.lyricist.processor)
+
+
+    add("kspCommonMainMetadata", libs.ktorfit.ksp)
     add("kspCommonMainMetadata", libs.kotlininject.ksp)
+    add("kspCommonMainMetadata", libs.lyricist.processor)
 }
