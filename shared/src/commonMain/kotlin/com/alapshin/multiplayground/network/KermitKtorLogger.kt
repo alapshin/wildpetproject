@@ -4,10 +4,9 @@ import io.ktor.client.plugins.logging.Logger
 
 object KermitKtorLogger : Logger {
     private const val TAG = "HttpLogger"
+    private val logger = co.touchlab.kermit.Logger.withTag("Ktor")
 
     override fun log(message: String) {
-        co.touchlab.kermit.Logger.i(tag = TAG) {
-            message
-        }
+        logger.i { message }
     }
 }

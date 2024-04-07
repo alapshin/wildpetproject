@@ -20,7 +20,7 @@ kotlin {
 
 android {
     namespace = "com.alapshin.multiplayground.android"
-    compileSdk = Versions.compileSdk
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
@@ -31,8 +31,8 @@ android {
 
     defaultConfig {
         applicationId = "com.alapshin.multiplayground.android"
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionName = project.version.toString()
         versionCode = Versioning.version(rootProject.version.toString()).code()
     }
@@ -42,6 +42,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false

@@ -15,7 +15,6 @@ import com.alapshin.multiplayground.root.di.create
 import com.alapshin.multiplayground.root.view.RootScreen
 import com.alapshin.multiplayground.theme.AppTheme
 import com.arkivanov.decompose.defaultComponentContext
-import io.kamel.image.config.LocalKamelConfig
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +28,11 @@ class MainActivity : ComponentActivity() {
             componentContext = defaultComponentContext(),
             applicationComponent = applicationComponent,
         )
-        val kamelConfig = platformComponent.kamelConfig
 
         setContent {
             AppTheme {
                 ProvideStrings {
-                    CompositionLocalProvider(LocalKamelConfig provides kamelConfig) {
+                    CompositionLocalProvider {
                         RootScreen(bloc = rootComponent.rootBloc, modifier = Modifier.fillMaxSize())
                     }
                 }

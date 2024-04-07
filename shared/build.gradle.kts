@@ -39,7 +39,7 @@ kotlin {
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
 
-                implementation(libs.kamel)
+                implementation(libs.coil.core)
                 implementation(libs.lyricist)
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.extensions)
@@ -73,11 +73,11 @@ kotlin {
 
 android {
     namespace = "com.alapshin.multiplayground"
-    compileSdk = Versions.compileSdk
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
+        minSdk = libs.versions.minSdk.get().toInt()
+        compileSdk = libs.versions.compileSdk.get().toInt()
     }
 
     compileOptions {
@@ -93,7 +93,7 @@ android {
 buildkonfig {
     packageName = "com.alapshin.multiplayground"
     defaultConfigs {
-        buildConfigField(Type.STRING, "API_URL", "http://192.168.2.107:8080/", const = true)
+        buildConfigField(Type.STRING, "API_URL", "http://192.168.2.19:8080/", const = true)
     }
 }
 
