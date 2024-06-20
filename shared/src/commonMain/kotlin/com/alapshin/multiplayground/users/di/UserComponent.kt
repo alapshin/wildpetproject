@@ -5,6 +5,7 @@ import com.alapshin.multiplayground.root.domain.Config
 import com.alapshin.multiplayground.users.data.UserRepository
 import com.alapshin.multiplayground.users.data.UserRepositoryImpl
 import com.alapshin.multiplayground.users.data.UserService
+import com.alapshin.multiplayground.users.data.createUserService
 import com.alapshin.multiplayground.users.domain.UserListBloc
 import com.alapshin.multiplayground.users.domain.UserListPresenter
 import com.alapshin.multiplayground.users.domain.UserListPresenterImpl
@@ -18,7 +19,7 @@ import me.tatarka.inject.annotations.Provides
 @Component
 interface UserComponent {
     @Provides
-    fun provideUserService(ktorfit: Ktorfit): UserService = ktorfit.create<UserService>()
+    fun provideUserService(ktorfit: Ktorfit): UserService = ktorfit.createUserService()
 
     @Provides
     fun provideUserRepository(repository: UserRepositoryImpl): UserRepository = repository

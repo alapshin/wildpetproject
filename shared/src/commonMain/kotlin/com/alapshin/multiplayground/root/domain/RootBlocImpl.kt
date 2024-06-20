@@ -20,6 +20,7 @@ class RootBlocImpl(
 
     private val _stack = childStack(
         source = navigation,
+        serializer = Config.serializer(),
         handleBackButton = true,
         childFactory = ::child,
         initialConfiguration = Config.Landing,

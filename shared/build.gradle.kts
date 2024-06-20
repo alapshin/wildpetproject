@@ -3,15 +3,16 @@ import com.codingfeline.buildkonfig.compiler.FieldSpec.Type
 plugins {
     alias(libs.plugins.ksp)
 
-    alias(libs.plugins.ktorfit)
-    alias(libs.plugins.buildkonfig)
-
     alias(libs.plugins.gradle.cacheFix)
     alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.jetbrains.compose)
+
+    alias(libs.plugins.ktorfit)
+    alias(libs.plugins.buildkonfig)
 }
 
 kotlin {
@@ -49,6 +50,7 @@ kotlin {
 
                 implementation(libs.kermit)
                 implementation(libs.kotlininject.runtime)
+                implementation(libs.kotlininject.runtimekmp)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.kotlinx.serialization)
 
@@ -98,15 +100,12 @@ buildkonfig {
 }
 
 dependencies {
-    add("kspAndroid", libs.ktorfit.ksp)
-    add("kspAndroid", libs.kotlininject.ksp)
-    add("kspAndroid", libs.lyricist.processor)
+//    add("kspAndroid", libs.kotlininject.ksp)
+//    add("kspAndroid", libs.lyricist.processor)
+//
+//    add("kspDesktop", libs.kotlininject.ksp)
+//    add("kspDesktop", libs.lyricist.processor)
 
-    add("kspDesktop", libs.ktorfit.ksp)
-    add("kspDesktop", libs.kotlininject.ksp)
-    add("kspDesktop", libs.lyricist.processor)
-
-    add("kspCommonMainMetadata", libs.ktorfit.ksp)
     add("kspCommonMainMetadata", libs.kotlininject.ksp)
     add("kspCommonMainMetadata", libs.lyricist.processor)
 }

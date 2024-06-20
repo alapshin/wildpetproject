@@ -9,11 +9,7 @@ import com.alapshin.multiplayground.registration.view.RegistrationScreen
 import com.alapshin.multiplayground.root.domain.Child
 import com.alapshin.multiplayground.root.domain.RootBloc
 import com.alapshin.multiplayground.users.view.UserListScreen
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.fade
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.plus
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.scale
-import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.stackAnimation
+import com.arkivanov.decompose.extensions.compose.stack.Children
 
 @Composable
 fun RootScreen(bloc: RootBloc, modifier: Modifier) {
@@ -21,7 +17,6 @@ fun RootScreen(bloc: RootBloc, modifier: Modifier) {
         Children(
             stack = bloc.stack,
             modifier = modifier,
-            animation = stackAnimation(fade() + scale()),
         ) {
             when (val child = it.instance) {
                 is Child.Landing -> LandingScreen(bloc = child.bloc)

@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val platformComponent = PlatformComponent::class.create(this)
+        val platformComponent = PlatformComponent::class.create()
         val applicationComponent = ApplicationComponent::class.create(
             platformComponent = platformComponent,
         )

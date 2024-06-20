@@ -1,45 +1,43 @@
 [versions]
-agp = "8.3.2"
+agp = "8.5.0"
 minSdk = "23"
 targetSdk = "34"
 compileSdk = "34"
 coil = "3.0.0-alpha06"
-kermit = "2.0.3"
-kotlin = "1.9.23"
-kotlin-inject = "0.6.3"
-ksp = "1.9.23-1.0.20"
-ktor = "2.3.10"
+kermit = "2.0.4"
+kotlin = "2.0.0"
+kotlin-inject = "0.7.1"
+ksp = "2.0.0-1.0.22"
+ktor = "2.3.11"
 ktlint = "0.50.0"
-ktorfit = "1.12.0"
+ktorfit = "2.0.0"
 coroutines = "1.6.4"
-datetime = "0.5.0"
-decompose = "2.2.2"
+datetime = "0.6.0"
+decompose = "3.1.0"
 essenty = "1.3.0"
 detekt = "1.23.6"
 lyricist = "1.7.0"
-molecule = "1.4.2"
-serialization = "1.6.3"
+molecule = "2.0.0"
+serialization = "1.7.0"
 sqldelight = "2.0.2"
-compose-multiplatform = "1.6.2"
+compose-multiplatform = "1.6.11"
 
 [libraries]
-androidx-activity-compose = "androidx.activity:activity-compose:1.8.2"
+androidx-activity-compose = "androidx.activity:activity-compose:1.9.0"
 coil-core = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
-coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
-coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
-decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "decompose" }
+decompose-extensions = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 essenty-parcelable = { module = "com.arkivanov.essenty:parcelable", version.ref = "essenty" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlininject-ksp = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
 kotlininject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlin-inject" }
+kotlininject-runtimekmp = {module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlin-inject" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
-ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
-ktor-client-core = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor" }
@@ -51,12 +49,12 @@ ktor-server-content = { module = "io.ktor:ktor-server-content-negotiation", vers
 ktor-server-resources = { module = "io.ktor:ktor-server-resources", version.ref = "ktor" }
 ktor-server-test = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
-logback = "ch.qos.logback:logback-classic:1.5.5"
-markdown = "org.jetbrains:markdown:0.7.0"
+logback = "ch.qos.logback:logback-classic:1.5.6"
+markdown = "org.jetbrains:markdown:0.7.3"
 molecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 lyricist = { module = "cafe.adriel.lyricist:lyricist", version.ref = "lyricist" }
 lyricist-processor = { module = "cafe.adriel.lyricist:lyricist-processor", version.ref = "lyricist" }
-password4j = "com.password4j:password4j:1.8.1"
+password4j = "com.password4j:password4j:1.8.2"
 sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 
 [bundles]
@@ -86,7 +84,6 @@ ktor-server = [
 [plugins]
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
-molecule = { id = "app.cash.molecule", version.ref = "molecule" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 gradle-cacheFix = "org.gradle.android.cache-fix:3.0.1"
@@ -94,11 +91,12 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
-ktlint = "org.jlleitschuh.gradle.ktlint:12.1.0"
+ktlint = "org.jlleitschuh.gradle.ktlint:12.1.1"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 buildkonfig = "com.codingfeline.buildkonfig:0.15.1"
 gitversioning = "me.qoomon.git-versioning:6.4.3"

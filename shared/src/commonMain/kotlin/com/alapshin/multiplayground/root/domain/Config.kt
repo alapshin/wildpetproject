@@ -1,12 +1,15 @@
 package com.alapshin.multiplayground.root.domain
 
-import com.arkivanov.essenty.parcelable.Parcelable
-import com.arkivanov.essenty.parcelable.Parcelize
+import kotlinx.serialization.Serializable
 
-@Parcelize
-sealed interface Config : Parcelable {
-    object Landing : Config
-    object Login : Config
-    object Registration : Config
-    object UserList : Config
+@Serializable
+sealed interface Config {
+    @Serializable
+    data object Landing : Config
+    @Serializable
+    data object Login : Config
+    @Serializable
+    data object Registration : Config
+    @Serializable
+    data object UserList : Config
 }

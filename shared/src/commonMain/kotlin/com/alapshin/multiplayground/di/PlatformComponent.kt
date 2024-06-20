@@ -1,4 +1,6 @@
 package com.alapshin.multiplayground.di
 
-@Suppress("UnnecessaryAbstractClass")
-expect abstract class PlatformComponent
+import me.tatarka.inject.annotations.Component
+
+@Component
+abstract class PlatformComponent
