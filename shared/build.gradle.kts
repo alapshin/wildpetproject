@@ -100,12 +100,6 @@ buildkonfig {
 }
 
 dependencies {
-//    add("kspAndroid", libs.kotlininject.ksp)
-//    add("kspAndroid", libs.lyricist.processor)
-//
-//    add("kspDesktop", libs.kotlininject.ksp)
-//    add("kspDesktop", libs.lyricist.processor)
-
     add("kspCommonMainMetadata", libs.kotlininject.ksp)
     add("kspCommonMainMetadata", libs.lyricist.processor)
 }
